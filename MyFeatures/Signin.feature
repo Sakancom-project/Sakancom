@@ -1,0 +1,38 @@
+Feature: Users Sign in 
+  Description: The Users signs into Sakancom System
+  Actor: All Users
+
+  Background:
+    Given the user on the login page
+    When the user enter one of the following user name and password regardless his role
+      |Marah     |marah123|0595642327|Nublus  |Admin |
+      |Bayan     |bayan123|0595642328|Tulkrem |Owner|
+      |Ahmad     |ahmad123|0595642329|Jenin   |tenants|
+
+  Scenario Outline: the <role> enter valid credentials
+    Given That the <role> is not signed in
+    And the <role> username is <username>
+    And the <role> password is <password>
+    Then the <role> sign in succeeds
+    And the <role> is signed in 
+    Then go to <role> page
+    Examples:
+      |username    |password  |phone     |address  |role|
+      |"Marah"     |"marah123"|0595642327|Nubles   |"Admin" |
+      |"Bayan"     |"bayan123"|0595642328|Tulkrem  |"Owner"|
+      |"Ahmad"     |"ahmad123"|0595642329|Jenin    |"tenants"|
+ 
+
+
+  Scenario Outline: the <role> enter invalid credentials
+    Given That the <role> is not signed in
+    And the <role> username is <username>
+    And the <role> password is <password>
+    Then the <role> sign in not succeeds
+    And the <role> is not signed in
+
+    Examples:
+     |username    |password  |phone     |address   |role|
+      |"marah"     |"marah123"|0595642327|Nubles    |"Admin" |
+      |"bayan"     |"bayan123"|0595642328|Tulkarem  |"Owner"|
+      |"Ahmad"     |"ahmad123"|0595642329|Jenin     |"tenants"|
