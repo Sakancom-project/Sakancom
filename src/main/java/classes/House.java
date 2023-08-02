@@ -4,7 +4,7 @@ public class House {
 	private int ID;
 	public Residence residenceObj;
 	public apartments apartmentsObj ;
-	public owners owner;
+//	public owners owner;
 	public House() {}
 	public House(int ID,Residence residenceObj,apartments apartmentsObj) {
 		this.ID=ID;

@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class owners {
 	Scanner myInput = new Scanner(System.in);
-	public ArrayList<House> arrayHouses = new ArrayList<House>();
 	
 	private int numberOfHouses ;
 	private String name ;

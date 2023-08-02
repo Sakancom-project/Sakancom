@@ -21,14 +21,7 @@ public class addHouseTest {
 	public void add_the_house_in_the_house_array_list_of_this_owner() {
 		 Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		 apartments apartments1=new apartments(1,1,600,4,"400*400","ww",true,true);
-		 House House1=new House(11,Residence1,apartments1);
-		 String ownerName="bayan";
-		 int index =0;
-			for(int i=0;i<main.arrayOwners.size();i++) {
-				if (main.arrayOwners.get(i).get_name() == ownerName) {
-					index=i;
-				}
-			}
-	   assertTrue(main.addHouse(House1,index));
+		 House House1=new House(1,Residence1,apartments1);
+	   assertTrue(main.addHouse(House1));
 	}
 }

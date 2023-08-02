@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 	
-		features="MyFeatures",
+		features="MyFeatures",///testModifyInformation.feature",
 		plugin="html:target/cucumber/report.html",
 		monochrome=true,
 		snippets=SnippetType.CAMELCASE,
