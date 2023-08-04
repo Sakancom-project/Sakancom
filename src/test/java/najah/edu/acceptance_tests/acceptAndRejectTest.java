@@ -26,7 +26,7 @@ public class acceptAndRejectTest {
 	public void add_a_house_in_ads_and_remove_a_house_in_ad_requests() {
 		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		 apartments apartments1=new apartments(1,1,600,4,"400*400","ww",true,true);
-		 House House1=new House(1,Residence1,apartments1);
+		 House House1=new House(1,Residence1,apartments1,true);
 		 assertTrue(main.acceptAndReject("y",House1));
 	}
 
@@ -39,7 +39,7 @@ public class acceptAndRejectTest {
 	public void remove_a_home_from_ad_requests() {
 		Residence Residence2 = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		 apartments apartments2=new apartments(2,2,600,4,"400*400","ww",true,true);
-		 House House2=new House(2,Residence2,apartments2);
+		 House House2=new House(2,Residence2,apartments2,true);
 		 assertFalse(main.acceptAndReject("n",House2));
 	}
 }

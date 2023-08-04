@@ -9,94 +9,34 @@ public class main {
 	public static ArrayList<House> AdvertisedHouses = new ArrayList<House>();
 	private static int CounterID=0; 
 	public static ArrayList<User> users = new ArrayList<User>();
+	public static ArrayList<tenant> tenantList = new ArrayList<tenant>();
 	private static String userType = "none" ;
 	static String username;
+	public static ArrayList <IdAndTennant> IdAndTennantlist = new ArrayList<IdAndTennant>();
+	static int counter=0;
 	
 	 
 	 public static void main(String[] args) {
+		 fullTenantList();
+//			System.out.print();
 		 while (true) {
 		System.out.println("Enter your username please");
 		String username1 = myInput.next();
 		System.out.println("Enter your password please");
 		String pass = myInput.next();
 		String type = login(username1, pass);
-//		System.out.print();
 		int in;
 		
 		
 		 if(type.equals("owner")) {
 			 do { 
-			 System.out.println("menu : ");
+			 System.out.println(" ((( owner menu ))) : ");
 			 System.out.println("1-add House\n2-Modify information\n3-show House\n4-Exit");
 			  in = myInput.nextInt();
 				 switch(in) {
 				 case 1:
-					 	Residence residenceObj=new Residence();
-					 	apartments apartmentsObj =new apartments() ;
-						CounterID=CounterID+1;
-		//			 	House1.set_ID(CounterID);
-					 	
-						System.out.println("The name of the building in which the apartment is located ?");
-						residenceObj.set_name(myInput.next());
-		
-						System.out.println("What is the location of the Residence in which the apartment is located ?");
-						residenceObj.set_location(myInput.next()); 
-						
-						System.out.println("What is the number of floors of the building?");
-						residenceObj.set_number_floors(myInput.nextInt());
-						
-						System.out.println("How many apartments per floor?");
-						residenceObj.set_Number_apartments_floor(myInput.nextInt());
-						
-						System.out.println("Enter the number of the apartment ?");
-						apartmentsObj.set_number(myInput.nextInt());
-						
-						System.out.println("What floor is the apartment on ?");
-						apartmentsObj.set_which_floor(myInput.nextInt());
-		
-						System.out.println("How many people can the apartment accommodate?");
-						apartmentsObj.set_number_person(myInput.nextInt());
-		
-						System.out.println("How space is the room ?");
-						apartmentsObj.set_space(myInput.next());
-						
-						System.out.println("How much are the monthly fees ?");
-						apartmentsObj.set_monthly_fee(myInput.nextInt());
-						
-						System.out.println("Do the fees include electricity and water ? (y or n)");
-						String s = myInput.next();
-						boolean b=true ;
-						if(s=="y" && s=="Y") { b=true;}
-						else if(s=="n" && s=="N") { b=false;}
-						else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-						apartmentsObj.set_Fees_include_water_electricity(b);
-		
-						System.out.println("Is there free internet service ? (y or n)");
-						s = myInput.next();
-						if(s=="y" && s=="Y") { b=true;}
-						else if(s=="n" && s=="N") { b=false;}
-						else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-						apartmentsObj.set_Free_internet(b);
-						
-						System.out.println("Is there a private car park for the building? (y or n)");
-						s = myInput.next();
-						if(s=="y" && s=="Y") { b=true;}
-						else if(s=="n" && s=="N") { b=false;}
-						else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-						residenceObj.set_available_parking(b);
-						
-						System.out.println("Is elevator service available? (y or n)");
-						s = myInput.next();
-						if(s=="y" && s=="Y") { b=true;}
-						else if(s=="n" && s=="N") { b=false;}
-						else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-						residenceObj.set_Elevator_available(b);	
-						
-						System.out.println("Enter a picture of the apartment");
-						apartmentsObj.set_photo(myInput.next());
-					 	House House1 = new House(CounterID,residenceObj,apartmentsObj);
-						System.out.println("**********");
-						addHouse( House1);
+					 House House1 = enterInformation();
+						addHouse(House1,"owner");
 					 break;
 				 case 2:
 		
@@ -127,8 +67,8 @@ public class main {
 		}
 		 else if (type.equals("admin")) {
 			 do { 
-				 System.out.println("menu : ");
-				 System.out.println("1-accept and reject\n2-show\n3-Exit");
+				 System.out.println(" ((( admin menu ))) : ");
+				 System.out.println("1-accept and reject\n2-show advertised houses\n3-add at advertised houses\n4-Exit");
 				 in = myInput.nextInt();
 					 switch(in) {
 					 case 1:
@@ -147,15 +87,71 @@ public class main {
 						 
 						 break; 
 					 case 2:
+						 showAdvertisedHouses();
+						 break; 
+					 case 3:
+						 House House1 = enterInformation();
+							addHouse(House1,"admin");
+						 break; 
+					 case 4:
+						 
 						 break; 	 
 					 } 
 			 }	
 			 while(in!=4);
 		 }
-//		 else {
-//			 
-//		 
-//		 }
+		 else {
+			 do { 
+				 System.out.println(" ((( tenants menu ))) : ");
+				 System.out.println("1-view the available housing \n2- view pictures of housing and other information\n3-\n4-bookacc\n5-AddFurniture\n6-Exit");
+				 in = myInput.nextInt();
+					 switch(in) {
+					 case 1:
+						 viewAvailableHousing();
+						 break; 
+					 case 2:
+						 viewPicturesAndInformation();
+						 break; 
+					 case 3:
+						 Menu();
+						 int Num =myInput.nextInt();
+						 switch(Num) {
+						 case 1: 
+							 ShowTenant(username);
+							 break;
+						 case 2:
+							 //still not done until bayan do it 
+							 break;		
+						 case 3:
+							 Payment(username);
+							 break;
+						  }; 
+						  break;
+					
+						 case 4:
+							 System.out.println("enter id hous to booked");
+
+								for(int i=0 ; i< AdvertisedHouses.size() ; i++) {
+									 if(AdvertisedHouses.get(i).get_availabilityStatus() ) {
+										  System.out.print(AdvertisedHouses.get(i).get_ID()+" || ");
+							  
+									 }}
+								Scanner input2 = new Scanner(System.in);
+							 	int id = input2.nextInt();
+
+							 bookacc(id);
+						 break;
+						 case 5:
+							 Scanner inp = new Scanner(System.in);
+
+								System.out.println("Enter your Furniture to add  please");
+								String	Furniture = inp.next();
+								AddFurniture(Furniture);
+							 break;
+					  }; 
+					 
+			 } while(in!=6);
+		 }
 		  }
 	 }
 	 
@@ -205,13 +201,82 @@ public class main {
 			return userType;
 		}
 	 
-		
+	 public static House enterInformation() {
+		 Residence residenceObj=new Residence();
+		 	apartments apartmentsObj =new apartments() ;
+			CounterID=CounterID+1;
+			System.out.println("The name of the building in which the apartment is located ?");
+			residenceObj.set_name(myInput.next());
+
+			System.out.println("What is the location of the Residence in which the apartment is located ?");
+			residenceObj.set_location(myInput.next()); 
+			
+			System.out.println("What is the number of floors of the building?");
+			residenceObj.set_number_floors(myInput.nextInt());
+			
+			System.out.println("How many apartments per floor?");
+			residenceObj.set_Number_apartments_floor(myInput.nextInt());
+			
+			System.out.println("Enter the number of the apartment ?");
+			apartmentsObj.set_number(myInput.nextInt());
+			
+			System.out.println("What floor is the apartment on ?");
+			apartmentsObj.set_which_floor(myInput.nextInt());
+
+			System.out.println("How many people can the apartment accommodate?");
+			apartmentsObj.set_number_person(myInput.nextInt());
+
+			System.out.println("How space is the room ?");
+			apartmentsObj.set_space(myInput.next());
+			
+			System.out.println("How much are the monthly fees ?");
+			apartmentsObj.set_monthly_fee(myInput.nextInt());
+			
+			System.out.println("Do the fees include electricity and water ? (y or n)");
+			String s = myInput.next();
+			boolean b=true ;
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			apartmentsObj.set_Fees_include_water_electricity(b);
+
+			System.out.println("Is there free internet service ? (y or n)");
+			s = myInput.next();
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			apartmentsObj.set_Free_internet(b);
+			
+			System.out.println("Is there a private car park for the building? (y or n)");
+			s = myInput.next();
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			residenceObj.set_available_parking(b);
+			
+			System.out.println("Is elevator service available? (y or n)");
+			s = myInput.next();
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			residenceObj.set_Elevator_available(b);	
+			
+			System.out.println("Enter a picture of the apartment");
+			apartmentsObj.set_photo(myInput.next());
+		 	House House1 = new House(CounterID,residenceObj,apartmentsObj,true);
+		 	return House1;
+	 }
 //owner		
 		
-		public static boolean addHouse(House House1) {
-
-			arrayHouses.add(House1);
-			System.out.println("House has been added successfully");
+		public static boolean addHouse(House House1,String type) {
+			if(type.equals("owner")) {
+				arrayHouses.add(House1);
+			}
+			else if(type.equals("admin")) {
+				AdvertisedHouses.add(House1);
+			}
+			
+			System.out.println("*******House has been added successfully*******");
 			return true;
 		}
 
@@ -279,12 +344,10 @@ public class main {
 			System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.get_space());
 			System.out.println("9-How much are the monthly fees : "+arrayHouses.get(i).apartmentsObj.get_monthly_fee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).apartmentsObj.get_Fees_include_water_electricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).apartmentsObj.get_Free_internet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).residenceObj.get_available_parking()+"\n13-Is elevator service available : "+arrayHouses.get(i).residenceObj.get_Elevator_available());
 			}
+			System.out.println("***The array is empty***");
 			return true;
 		}
 
-		
-		
-		
 //admain		
 		
 		public static Boolean acceptAndReject(String s ,House housing){
@@ -302,22 +365,125 @@ public class main {
 				System.out.println("Enter true value !!!");
 			}
 			System.out.println("*********Not added*********");
-			return 
-;
+			return false;
 			}
-		
-		
-		
-		
-		
-		
+
 		public static boolean showAdvertisedHouses() {
 			for(int i=0;i<AdvertisedHouses.size();i++) {
 			System.out.println("House information is : ");
-			System.out.println("1-name of Residence : " +arrayHouses.get(i).residenceObj.get_name()+" \n2-the location of the Residence : " +arrayHouses.get(i).residenceObj.get_location() +"\n3-the number of floors of the building : "+arrayHouses.get(i).residenceObj.get_number_floors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).residenceObj.get_Number_apartments_floor());
-			System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.get_space());
-			System.out.println("9-How much are the monthly fees : "+arrayHouses.get(i).apartmentsObj.get_monthly_fee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).apartmentsObj.get_Fees_include_water_electricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).apartmentsObj.get_Free_internet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).residenceObj.get_available_parking()+"\n13-Is elevator service available : "+arrayHouses.get(i).residenceObj.get_Elevator_available());
+			System.out.println("1-name of Residence : " +AdvertisedHouses.get(i).residenceObj.get_name()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).residenceObj.get_location() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).residenceObj.get_number_floors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).residenceObj.get_Number_apartments_floor());
+			System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.get_space());
+			System.out.println("9-How much are the monthly fees : "+AdvertisedHouses.get(i).apartmentsObj.get_monthly_fee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).apartmentsObj.get_Fees_include_water_electricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).apartmentsObj.get_Free_internet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).residenceObj.get_available_parking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).residenceObj.get_Elevator_available());
 			}
+			System.out.println("***The array is empty***");
 			return true;
 		}
+		
+		
+
+		public static boolean viewAvailableHousing(){
+			if(AdvertisedHouses.isEmpty()) {System.out.println("***There are no homes available***"); return false;}
+			System.out.println("The available housing : ");
+			for(int i=0;i<AdvertisedHouses.size();i++) {
+				 if(AdvertisedHouses.get(i).get_availabilityStatus()) {
+					 System.out.println("name of Residence : " +AdvertisedHouses.get(i).residenceObj.get_name()+" \nthe location of the Residence : " +AdvertisedHouses.get(i).residenceObj.get_location() );
+						System.out.println("the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.get_number());
+				 } 
+			 }
+			
+			 return true;
+		}
+		
+		public static boolean viewPicturesAndInformation(){
+			for(int i=0;i<AdvertisedHouses.size();i++) {
+				 if(AdvertisedHouses.get(i).get_availabilityStatus()) {
+					 System.out.println("House information is : ");
+						System.out.println("1-name of Residence : " +AdvertisedHouses.get(i).residenceObj.get_name()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).residenceObj.get_location() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).residenceObj.get_number_floors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).residenceObj.get_Number_apartments_floor());
+						System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.get_space());
+						System.out.println("9-How much are the monthly fees : "+AdvertisedHouses.get(i).apartmentsObj.get_monthly_fee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).apartmentsObj.get_Fees_include_water_electricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).apartmentsObj.get_Free_internet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).residenceObj.get_available_parking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).residenceObj.get_Elevator_available());
+						System.out.println("14-Image link for the apartment"+AdvertisedHouses.get(i).apartmentsObj.get_photo());
+						System.out.println("** This house is available **");
+				 }
+			 }
+			return true;
+		}
+		
+		public static Boolean AddFurniture(String Furniture){
+			 for ( int i=0; i <tenantList.size(); i++ ) {
+				 if (username.equals(tenantList.get(i).getName())){
+					 tenantList.get(i).setFurniture(Furniture);
+					 System.out.println("dobe");
+					 return true;
+				 }
+			 }
+			 return false;
+		 }
+		public static void ShowTenant(String name){
+			 for ( int i=0; i <tenantList.size(); i++ ) {
+			if(tenantList.get(i).getName().equals(name)){
+				System.out.println(" the tenat information is : ");
+				System.out.println("Name : " + tenantList.get(i).getName());
+				System.out.println("phone : " + tenantList.get(i).getPhone());
+				System.out.println("Age : " + tenantList.get(i).getAge());
+				System.out.println("major : " + tenantList.get(i).getMajor());
+				System.out.println("he is a student  : " + tenantList.get(i).getIsStudent());
+				System.out.println("furniture : " + tenantList.get(i).getFurniture());
+
+			}
+			 }
+		}
+
+		public static void Payment(String name){
+			 for ( int i=0; i <tenantList.size(); i++ ) {
+					if(tenantList.get(i).getName().equals(name)){
+						System.out.println("payDate : " + tenantList.get(i).getPayDate());
+						System.out.println("paid : " +tenantList.get(i).isPaid());
+			
+					}
+					}
+			
+		}
+		public static void Menu() {
+			System.out.println(" Choose one of these options : ");
+			System.out.println(" 1- Tenant Information ");
+			System.out.println(" 2- Informations about Owner and how to Contact ");
+			System.out.println(" 3- the Rent and when to pay  ");
+}	
+	
+		public static boolean bookacc(int id) {
+			 boolean flagRet=false;
+			for(int i=0 ; i< AdvertisedHouses.size() ; i++) {
+				 if(AdvertisedHouses.get(i).get_ID() == id ) {	
+					 if(AdvertisedHouses.get(i).get_availabilityStatus() ) {
+						 counter=counter+1;
+						  flagRet=true;	 
+						  IdAndTennant t = new IdAndTennant(id,username);
+						  IdAndTennantlist.add(t);
+						  System.out.println("The house has been booked");
+//						
+						  if(AdvertisedHouses.get(i).apartmentsObj.get_number_person() == counter) {
+							  AdvertisedHouses.get(i).set_availabilityStatus(false);
+							  
+						  }
+						  
+					  }
+					  else	{
+						  flagRet=false;
+					  System.out.println("This house is Non available"); }
+
+					  }
+					 }
+			return flagRet;
+								 
+				}
+		
+		public static void fullTenantList() {
+			tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"","12-4-2023");
+			tenant tenant2=new tenant("osama","0569902837",19,"enj",true,"","12-4-2023");
+			tenantList.add(tenant1);
+			tenantList.add(tenant2);
+			
+		
+		}
+		
 }
