@@ -27,7 +27,7 @@ public class main {
 		String type = login(username, pass);
 		menu_type(type);
 		}
-		 while (username=="exit");
+		 while (username.equals("exit"));
 	 }
 	 
 	 
