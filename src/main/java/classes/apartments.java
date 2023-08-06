@@ -29,70 +29,70 @@ public class apartments {
 		this.FeesIncludeWaterElectricity=FeesIncludeWaterElectricity;
 	};
 	
-	public int GetNumber() {
+	public int getNumber() {
 		return number;
 	}
-	public void SetNumber(int NewNumber) {
-		number = NewNumber;
+	public void SetNumber(int newNumber) {
+		number = newNumber;
 	}
-	public int GetWhichFloor() {
+	public int getWhichFloor() {
 		return whichFloor;
 	}
-	public void SetWhichFloor(int NewWhichFloor) {
+	public void setWhichFloor(int NewWhichFloor) {
 		whichFloor = NewWhichFloor;
 	}
 	public int GetMonthlyFee() {
 		return MonthlyFee;
 	}
-	public void SetMonthlyFee(int NewMonthlyFee) {
+	public void setMonthlyFee(int NewMonthlyFee) {
 		MonthlyFee = NewMonthlyFee;
 	}
-	public int GetNumberPerson() {
+	public int getNumberPerson() {
 		return NumberPerson;
 	}
-	public void SetNumberPerson(int NewNumberPerson) {
-		NumberPerson = NewNumberPerson;
+	public void setNumberPerson(int newNumberPerson) {
+		NumberPerson = newNumberPerson;
 	}
-	public String GetSpace() {
+	public String getSpace() {
 		return space;
 	}
-	public void SetSpace(String NewSpace) {
+	public void setSpace(String NewSpace) {
 		space = NewSpace;
 	}
-	public int GetBedroomNumber() {
+	public int getBedroomNumber() {
 		return  BedroomNumber;
 	}
-	public void SetBedroomNumber(int NewBedroomNumber) {
+	public void setBedroomNumber(int NewBedroomNumber) {
 		BedroomNumber = NewBedroomNumber;
 	}
-	public int GetBathroomsNumber() {
+	public int getBathroomsNumber() {
 		return BathroomsNumber;
 	}
-	public void SetBathroomsNumber(int NewBathroomsNumber) {
+	public void setBathroomsNumber(int NewBathroomsNumber) {
 		BathroomsNumber = NewBathroomsNumber;
 	}
-	public int GetBalconyNumber() {
+	public int getBalconyNumber() {
 		return BalconyNumber;
 	}
-	public void SetBalconyNumber(int NewBalconyNumber) {
+	public void setBalconyNumber(int NewBalconyNumber) {
 		BalconyNumber = NewBalconyNumber;
 	}
-	public String GetPhoto() {
+	public String getPhoto() {
 		return photo;
 	}
-	public void SetPhoto(String NewPhoto) {
+	public void setPhoto(String NewPhoto) {
 		photo = NewPhoto;
 	}
-	public boolean GetFreeInternet() {
+	public boolean getFreeInternet() {
 		return FreeInternet;
 	}
-	public void SetFreeInternet(boolean NewFreeInternet) {
+	public void setFreeInternet(boolean NewFreeInternet) {
 		FreeInternet = NewFreeInternet;
 	}
-	public boolean GetFeesIncludeWaterElectricity() {
+	public boolean getFeesIncludeWaterElectricity() {
 		return FeesIncludeWaterElectricity;
 	}
-	public void SetFeesIncludeWaterElectricity(boolean NewFeesIncludeWaterElectricity) {
+	public void setFeesIncludeWaterElectricity(boolean NewFeesIncludeWaterElectricity) {
 		FeesIncludeWaterElectricity = NewFeesIncludeWaterElectricity;
 	}
 }

@@ -98,25 +98,25 @@ public class main {
 			apartmentsObj.SetNumber(myInput.nextInt());
 			
 			System.out.println("What floor is the apartment on ?");
-			apartmentsObj.SetWhichFloor(myInput.nextInt());
+			apartmentsObj.setWhichFloor(myInput.nextInt());
 
 			System.out.println("How many people can the apartment accommodate ?");
-			apartmentsObj.SetNumberPerson(myInput.nextInt());
+			apartmentsObj.setNumberPerson(myInput.nextInt());
 
 			System.out.println("How space is the room ?");
-			apartmentsObj.SetSpace(myInput.next());
+			apartmentsObj.setSpace(myInput.next());
 			
 			System.out.println("How much are the monthly fees ?");
-			apartmentsObj.SetMonthlyFee(myInput.nextInt());
+			apartmentsObj.setWhichFloor(myInput.nextInt());
 			
 			System.out.println("The number of bedrooms is :");
-			apartmentsObj.SetBedroomNumber(myInput.nextInt());
+			apartmentsObj.setBedroomNumber(myInput.nextInt());
 			
 			System.out.println("The number of bathrooms is :");
-			apartmentsObj.SetBathroomsNumber(myInput.nextInt());
+			apartmentsObj.setBathroomsNumber(myInput.nextInt());
 			
 			System.out.println("The number of balcony is :");
-			apartmentsObj.SetBalconyNumber(myInput.nextInt());
+			apartmentsObj.setBalconyNumber(myInput.nextInt());
 			
 			System.out.println("Do the fees include electricity and water ? (y or n)");
 			String s = myInput.next();
@@ -124,14 +124,14 @@ public class main {
 			if(s.equals("y") && s.equals("Y")) { b=true;}
 			else if(s.equals("n") && s.equals("N")) { b=false;}
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-			apartmentsObj.SetFeesIncludeWaterElectricity(b);
+			apartmentsObj.setFeesIncludeWaterElectricity(b);
 
 			System.out.println("Is there free internet service ? (y or n)");
 			s = myInput.next();
 			if(s.equals("y") && s.equals("Y")) { b=true;}
 			else if(s.equals("n") && s.equals("N")) { b=false;}
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-			apartmentsObj.SetFreeInternet(b);
+			apartmentsObj.setFreeInternet(b);
 			
 			System.out.println("Is there a private car park for the building? (y or n)");
 			s = myInput.next();
@@ -151,7 +151,7 @@ public class main {
 			owner1.SetPhoneNumber(myInput.next());
 			
 			System.out.println("Enter a picture of the apartment");
-			apartmentsObj.SetPhoto(myInput.next());
+			apartmentsObj.setPhoto(myInput.next());
 			
 			 House House1=new House(CounterID,residenceObj,apartmentsObj,owner1,true);
 		 	return House1;
@@ -212,8 +212,8 @@ public class main {
 									System.out.println("The ID of the house is: " +arrayHouses.get(i).getId() );
 									System.out.println("House information is : ");
 									System.out.println("1-name of Residence : " +arrayHouses.get(i).residenceObj.getName()+" \n2-the location of the Residence : " +arrayHouses.get(i).residenceObj.getLocation() +"\n3-the number of floors of the building : "+arrayHouses.get(i).residenceObj.getNumberFloors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).residenceObj.getNumberApartmentsFloor());
-									System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.GetNumber()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.GetWhichFloor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.GetNumberPerson()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.GetSpace());
-									System.out.println("9-How much are the monthly fees : "+arrayHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).apartmentsObj.GetFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).apartmentsObj.GetFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).residenceObj.getElevatorAvailable());
+									System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.getNumber()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.getWhichFloor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.getNumberPerson()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.getSpace());
+									System.out.println("9-How much are the monthly fees : "+arrayHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).apartmentsObj.getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).apartmentsObj.getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).residenceObj.getElevatorAvailable());
 									
 									System.out.println("Enter y if you accept to add this house and n if you reject : ");
 									acc = myInput.next();
@@ -338,22 +338,22 @@ public class main {
 				House1.apartmentsObj.SetNumber(Integer.parseInt(new_value));
 				break;
 			case 6:
-				House1.apartmentsObj.SetWhichFloor(Integer.parseInt(new_value));
+				House1.apartmentsObj.setWhichFloor(Integer.parseInt(new_value));
 				break;
 			case 7:
-				House1.apartmentsObj.SetNumberPerson(Integer.parseInt(new_value));
+				House1.apartmentsObj.setNumberPerson(Integer.parseInt(new_value));
 				break;
 			case 8:
-				House1.apartmentsObj.SetSpace(new_value);
+				House1.apartmentsObj.setSpace(new_value);
 				break;
 			case 9:
-				House1.apartmentsObj.SetMonthlyFee(Integer.parseInt(new_value));
+				House1.apartmentsObj.setWhichFloor(Integer.parseInt(new_value));
 				break;
 			case 10:
-				House1.apartmentsObj.SetFeesIncludeWaterElectricity(Boolean.parseBoolean(new_value));
+				House1.apartmentsObj.setFeesIncludeWaterElectricity(Boolean.parseBoolean(new_value));
 				break;
 			case 11:
-				House1.apartmentsObj.SetFreeInternet(Boolean.parseBoolean(new_value));
+				House1.apartmentsObj.setFreeInternet(Boolean.parseBoolean(new_value));
 				break;
 			case 12:
 				House1.residenceObj.setAvailableParking(Boolean.parseBoolean(new_value));
@@ -362,7 +362,7 @@ public class main {
 				House1.residenceObj.setElevatorAvailable(Boolean.parseBoolean(new_value));
 				break;
 			case 14:
-				House1.apartmentsObj.SetPhoto(new_value);
+				House1.apartmentsObj.setPhoto(new_value);
 				break;
 			default:
 				System.out.println("Wrong!!!Enter only one of the available options");
@@ -378,8 +378,8 @@ public class main {
 			System.out.println("The ID of the house is: " +arrayHouses.get(i).getId() );
 			System.out.println("House information is : ");
 			System.out.println("1-name of Residence : " +arrayHouses.get(i).residenceObj.getName()+" \n2-the location of the Residence : " +arrayHouses.get(i).residenceObj.getLocation() +"\n3-the number of floors of the building : "+arrayHouses.get(i).residenceObj.getNumberFloors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).residenceObj.getNumberApartmentsFloor());
-			System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.GetNumber()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.GetWhichFloor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.GetNumberPerson()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.GetSpace());
-			System.out.println("9-How much are the monthly fees : "+arrayHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).apartmentsObj.GetFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).apartmentsObj.GetFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).residenceObj.getElevatorAvailable());
+			System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.getNumber()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.getWhichFloor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.getNumberPerson()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.getSpace());
+			System.out.println("9-How much are the monthly fees : "+arrayHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).apartmentsObj.getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).apartmentsObj.getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).residenceObj.getElevatorAvailable());
 			}
 			System.out.println("***The array is empty***");
 			return true;
@@ -392,10 +392,10 @@ public class main {
 				System.out.println("The ID of the house is: " +AdvertisedHouses.get(i).getId() );
 				System.out.println("Architecture name : " +AdvertisedHouses.get(i).residenceObj.getName() );
 				System.out.println("The apartment is located on the floor : " +AdvertisedHouses.get(i).residenceObj.getNumberFloors() );
-				System.out.println("This apartment is located on the floor:"+AdvertisedHouses.get(i).apartmentsObj.GetWhichFloor());
-				System.out.println("It contains a number of bedrooms:"+AdvertisedHouses.get(i).apartmentsObj.GetBedroomNumber());
-				System.out.println("Number of bathrooms:"+AdvertisedHouses.get(i).apartmentsObj.GetBathroomsNumber());
-				System.out.println("balcony number:"+AdvertisedHouses.get(i).apartmentsObj.GetBalconyNumber());
+				System.out.println("This apartment is located on the floor:"+AdvertisedHouses.get(i).apartmentsObj.getWhichFloor());
+				System.out.println("It contains a number of bedrooms:"+AdvertisedHouses.get(i).apartmentsObj.getBedroomNumber());
+				System.out.println("Number of bathrooms:"+AdvertisedHouses.get(i).apartmentsObj.getBathroomsNumber());
+				System.out.println("balcony number:"+AdvertisedHouses.get(i).apartmentsObj.getBalconyNumber());
 				System.out.println("The tenants are:");
 				//				System.out.println("Names of owner:"+AdvertisedHouses.get(i).OwnerObj.get_name()+"And his phone number:"+AdvertisedHouses.get(i).OwnerObj.get_phone_number());
 				for(int k =0 ; k<IdAndTennantlist.size() ; k++) {
@@ -438,8 +438,8 @@ public class main {
 			for(int i=0;i<AdvertisedHouses.size();i++) {
 			System.out.println("House information is : ");
 			System.out.println("1-name of Residence : " +AdvertisedHouses.get(i).residenceObj.getName()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).residenceObj.getLocation() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).residenceObj.getNumberFloors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).residenceObj.getNumberApartmentsFloor());
-			System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.GetNumber()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.GetWhichFloor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.GetNumberPerson()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.GetSpace());
-			System.out.println("9-How much are the monthly fees : "+AdvertisedHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).apartmentsObj.GetFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).apartmentsObj.GetFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).residenceObj.getElevatorAvailable());
+			System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.getNumber()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.getWhichFloor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.getNumberPerson()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.getSpace());
+			System.out.println("9-How much are the monthly fees : "+AdvertisedHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).apartmentsObj.getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).apartmentsObj.getFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).residenceObj.getElevatorAvailable());
 			}
 			System.out.println("***The array is empty***");
 			return true;
@@ -462,7 +462,7 @@ public class main {
 			for(int i=0;i<AdvertisedHouses.size();i++) {
 				 if(AdvertisedHouses.get(i).getAvailabilityStatus()) {
 					 System.out.println("name of Residence : " +AdvertisedHouses.get(i).residenceObj.getName()+" \nthe location of the Residence : " +AdvertisedHouses.get(i).residenceObj.getLocation() );
-						System.out.println("the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.GetNumber());
+						System.out.println("the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.getNumber());
 				 } 
 			 }
 			
@@ -474,9 +474,9 @@ public class main {
 				 if(AdvertisedHouses.get(i).getAvailabilityStatus()) {
 					 System.out.println("House information is : ");
 						System.out.println("1-name of Residence : " +AdvertisedHouses.get(i).residenceObj.getName()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).residenceObj.getLocation() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).residenceObj.getNumberFloors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).residenceObj.getNumberApartmentsFloor());
-						System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.GetNumber()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.GetWhichFloor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.GetNumberPerson()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.GetSpace());
-						System.out.println("9-How much are the monthly fees : "+AdvertisedHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).apartmentsObj.GetFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).apartmentsObj.GetFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).residenceObj.getElevatorAvailable());
-						System.out.println("14-Image link for the apartment"+AdvertisedHouses.get(i).apartmentsObj.GetPhoto());
+						System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.getNumber()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.getWhichFloor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.getNumberPerson()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.getSpace());
+						System.out.println("9-How much are the monthly fees : "+AdvertisedHouses.get(i).apartmentsObj.GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).apartmentsObj.getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).apartmentsObj.getFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).residenceObj.getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).residenceObj.getElevatorAvailable());
+						System.out.println("14-Image link for the apartment"+AdvertisedHouses.get(i).apartmentsObj.getPhoto());
 						System.out.println("** This house is available **");
 				 }
 			 }
@@ -614,7 +614,7 @@ public class main {
 						  IdAndTennant t = new IdAndTennant(id,n);
 						  IdAndTennantlist.add(t);
 						  System.out.println("The house has been booked");						
-						  if(AdvertisedHouses.get(i).apartmentsObj.GetNumberPerson() == counter) {
+						  if(AdvertisedHouses.get(i).apartmentsObj.getNumberPerson() == counter) {
 							  AdvertisedHouses.get(i).SetAvailabilityStatus(false);
 							  
 						  }

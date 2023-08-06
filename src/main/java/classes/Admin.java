@@ -9,11 +9,11 @@ public class Admin {
 	private String phoneNumber;
 	ArrayList<House> arrayHouses = new ArrayList<House>();
 	
-	public String GetName() {
+	public String getName() {
 		return name ;
 	}
-	public void SetName(String NewName) {
-		name = NewName;
+	public void setName(String newName) {
+		name = newName;
 	}
 	public String getPassword() 
 	{
