@@ -12,8 +12,8 @@ public class Admin {
 	public String GetName() {
 		return name ;
 	}
-	public void SetName(String new_name) {
-		name = new_name;
+	public void SetName(String NewName) {
+		name = NewName;
 	}
 	public String getPassword() 
 	{
@@ -36,11 +36,6 @@ public class Admin {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public void AddHouse(ArrayList <House> A) {
-		House House1 = new House();
-		for (int i=0 ; i<A.size() ; i++ ) {
-			
-		
-	}
-	}
+	
+	
 }

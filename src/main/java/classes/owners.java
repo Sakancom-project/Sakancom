@@ -15,14 +15,14 @@ public class owners {
 		this.name=name;
 		this.PhoneNumber=PhoneNumber;
 	};
-	public String GetName() {
+	public String getName() {
 		return name ;
 	}
-	public void SetName(String new_name) {
-		name = new_name;
+	public void setName(String newName) {
+		name = newName;
 	}
 	
-	public String GetPhoneNumber() {
+	public String getPhoneNumber() {
 		return PhoneNumber ;
 	}
 	public void SetPhoneNumber(String NewPhoneNumber) {

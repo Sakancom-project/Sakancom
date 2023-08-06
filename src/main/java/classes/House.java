@@ -2,29 +2,29 @@ package classes;
 
 public class House {
 	private int id;
-	public Residence ResidenceObj;
-	public apartments ApartmentsObj ;
+	public Residence residenceObj;
+	public apartments apartmentsObj ;
 	public owners OwnerObj ;
-	private boolean AvailabilityStatus;
+	private boolean availabilityStatus;
 
 	public House() {}
-	public House(int id,Residence ResidenceObj,apartments ApartmentsObj,owners OwnerObj,boolean AvailabilityStatus) {
+	public House(int id,Residence residenceObj,apartments apartmentsObj,owners OwnerObj,boolean availabilityStatus) {
 		this.id=id;
-		this.ResidenceObj=ResidenceObj;
-		this.ApartmentsObj=ApartmentsObj;
+		this.residenceObj=residenceObj;
+		this.apartmentsObj=apartmentsObj;
 		this.OwnerObj=OwnerObj;
-		this.AvailabilityStatus=AvailabilityStatus;
+		this.availabilityStatus=availabilityStatus;
 	}
-	public int GetId() {
+	public int getId() {
 		return id;
 	}
-	public void Setid(int Newid) {
-		id = Newid;
+	public void setId(int newId) {
+		id = newId;
 	}
-	public boolean GetAvailabilityStatus() {
-		return AvailabilityStatus;
+	public boolean getAvailabilityStatus() {
+		return availabilityStatus;
 	}
-	public void SetAvailabilityStatus(boolean NewAvailabilityStatus) {
-		AvailabilityStatus = NewAvailabilityStatus;
+	public void SetAvailabilityStatus(boolean newAvailabilityStatus) {
+		availabilityStatus = newAvailabilityStatus;
 	}
 }
