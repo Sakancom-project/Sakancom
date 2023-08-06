@@ -23,7 +23,7 @@ public class addFurnitureTest {
 	public void add_furniture() {
 		tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
 		main.tenantList.add(tenant1);
-		assertTrue(main.AddFurniture("sofa set","mayar"));
+		assertTrue(main.addFurniture("sofa set","mayar"));
 	}
 
 }

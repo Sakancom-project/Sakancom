@@ -29,7 +29,7 @@ public class tenantControlPanelTest {
 	public void show_tenant_information() {
 		tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
 		main.tenantList.add(tenant1);
-		assertTrue(main.ShowTenant("mayar"));
+		assertTrue(main.showTenant("mayar"));
 	}
 
 	@Given("the tenant loged in")
@@ -50,7 +50,7 @@ public class tenantControlPanelTest {
 		 House House3=new House(4,Residence3,apartments3,owner3,true);
 		 main.addHouse(House3, "owner");
 		 main.acceptAndReject("y",House3);
-		 assertTrue(main.bookacc(4,"mayar"));
+		 assertTrue(main.bookAccommodation(4,"mayar"));
 		 IdAndTennant IdAndTennant1=new IdAndTennant(4,"mayar");
 		 main.IdAndTennantlist.add(IdAndTennant1);
 		 IdAndTennant IdAndTennant2=new IdAndTennant(1,"osama");
@@ -71,11 +71,11 @@ public class tenantControlPanelTest {
 		 House House1=new House(3,Residence1,apartments1,owner1,true);
 		 main.addHouse(House1, "owner");
 		 main.acceptAndReject("y",House1);
-		 main.bookacc(3,"mayar");
+		 main.bookAccommodation(3,"mayar");
 		 IdAndTennant IdAndTennant1=new IdAndTennant(3,"mayar");
 		 main.IdAndTennantlist.add(IdAndTennant1);
 		 main.fullTenantList();
-		assertTrue(main.Paymentt("y","mayar"));
+		assertTrue(main.paymentt("y","mayar"));
 	}
 
 }

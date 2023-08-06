@@ -22,7 +22,7 @@ public class bookAccommodationTesr {
 		 owners owner1 = new owners("mayar","0569902837");
 		 House House1=new House(1,Residence1,apartments1,owner1,true);
 		 main.acceptAndReject("y",House1);
-		assertTrue(main.bookacc(1,"mayar"));
+		assertTrue(main.bookAccommodation(1,"mayar"));
 	}
 
 }
