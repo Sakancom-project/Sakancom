@@ -18,16 +18,146 @@ public class main {
 	 
 	 public static void main(String[] args) {
 		 fullTenantList();
-//			System.out.print();
+		 int in=0;
 		 while (true) {
 		System.out.println("Enter your username please");
 		 username = myInput.next();
 		System.out.println("Enter your password please");
 		String pass = myInput.next();
 		String type = login(username, pass);
-		int in;
-		
-		
+		menu_type(in,type);
+		}
+	 }
+	 
+	 
+//log in 	 
+	 public static String login(String userName , String password){
+		 
+		 User firstUser= new User("marah", "123","admin");
+		 User secondtUser= new User("bayan", "333", "owner");
+		 User thirdUser= new User("ahmad", "133", "owner");
+		 User fourthUser= new User("khalid", "993", "tenant");
+		 User fifthUser= new User("mayar", "122", "tenant");
+		 User sixthUser= new User("osama", "222", "tenant");
+		 
+		 users.add(firstUser);
+		 users.add(secondtUser);
+		 users.add(thirdUser);
+		 users.add(fourthUser);
+		 users.add(fifthUser);
+		 users.add(sixthUser);
+		 
+		for (int i=0 ; i <users.size();i++) {
+			
+			if (users.get(i).getUserName().equals(userName)) {
+			if (users.get(i).getType().equals("admin")) {
+				setUserType("admin");
+		}
+			else if (users.get(i).getType().equals("owner")) {
+				setUserType("owner");
+		}
+			else if (users.get(i).getType().equals("tenant")) {
+				setUserType("tenant");
+		}
+			else {
+				setUserType("none");
+			}
+		}
+		}
+	
+	return getUserType();
+	 }
+	 
+	 public static void setUserType(String type) {
+			userType = type;
+		}	
+	 public static String getUserType() {
+			return userType;
+		}
+	 
+	 public static House enterInformation() {
+		 Residence residenceObj=new Residence();
+		 	apartments apartmentsObj =new apartments() ;
+		 	owners owner1 = new owners();
+		 	owner1.set_name(username);
+			CounterID=CounterID+1;
+			System.out.println("The name of the building in which the apartment is located ?");
+			residenceObj.set_name(myInput.next());
+
+			System.out.println("What is the location of the Residence in which the apartment is located ?");
+			residenceObj.set_location(myInput.next()); 
+			
+			System.out.println("What is the number of floors of the building ?");
+			residenceObj.set_number_floors(myInput.nextInt());
+			
+			System.out.println("How many apartments per floor?");
+			residenceObj.set_Number_apartments_floor(myInput.nextInt());
+			
+			System.out.println("Enter the number of the apartment ?");
+			apartmentsObj.set_number(myInput.nextInt());
+			
+			System.out.println("What floor is the apartment on ?");
+			apartmentsObj.set_which_floor(myInput.nextInt());
+
+			System.out.println("How many people can the apartment accommodate ?");
+			apartmentsObj.set_number_person(myInput.nextInt());
+
+			System.out.println("How space is the room ?");
+			apartmentsObj.set_space(myInput.next());
+			
+			System.out.println("How much are the monthly fees ?");
+			apartmentsObj.set_monthly_fee(myInput.nextInt());
+			
+			System.out.println("The number of bedrooms is :");
+			apartmentsObj.set_bedroom_number(myInput.nextInt());
+			
+			System.out.println("The number of bathrooms is :");
+			apartmentsObj.set_bathrooms_number(myInput.nextInt());
+			
+			System.out.println("The number of balcony is :");
+			apartmentsObj.set_balcony_number(myInput.nextInt());
+			
+			System.out.println("Do the fees include electricity and water ? (y or n)");
+			String s = myInput.next();
+			boolean b=true ;
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			apartmentsObj.set_Fees_include_water_electricity(b);
+
+			System.out.println("Is there free internet service ? (y or n)");
+			s = myInput.next();
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			apartmentsObj.set_Free_internet(b);
+			
+			System.out.println("Is there a private car park for the building? (y or n)");
+			s = myInput.next();
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			residenceObj.set_available_parking(b);
+			
+			System.out.println("Is elevator service available? (y or n)");
+			s = myInput.next();
+			if(s=="y" && s=="Y") { b=true;}
+			else if(s=="n" && s=="N") { b=false;}
+			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
+			residenceObj.set_Elevator_available(b);	
+			
+			System.out.println("Enter your phone number to contact : ");
+			owner1.set_phone_number(myInput.next());
+			
+			System.out.println("Enter a picture of the apartment");
+			apartmentsObj.set_photo(myInput.next());
+			
+			 House House1=new House(CounterID,residenceObj,apartmentsObj,owner1,true);
+		 	return House1;
+	 }
+	 
+	 
+	 public static void menu_type(int in,String type)  {
 		 if(type.equals("owner")) {
 			 do { 
 			 System.out.println(" ((( owner menu ))) : ");
@@ -169,135 +299,8 @@ public class main {
 					
 			 } while(in!=8);
 		 }
-		  }
 	 }
 	 
-	 
-//log in 	 
-	 public static String login(String userName , String password){
-		 
-		 User firstUser= new User("marah", "123","admin");
-		 User secondtUser= new User("bayan", "333", "owner");
-		 User thirdUser= new User("ahmad", "133", "owner");
-		 User fourthUser= new User("khalid", "993", "tenant");
-		 User fifthUser= new User("mayar", "122", "tenant");
-		 User sixthUser= new User("osama", "222", "tenant");
-		 
-		 users.add(firstUser);
-		 users.add(secondtUser);
-		 users.add(thirdUser);
-		 users.add(fourthUser);
-		 users.add(fifthUser);
-		 users.add(sixthUser);
-		 
-		for (int i=0 ; i <users.size();i++) {
-			
-			if (users.get(i).getUserName().equals(userName)) {
-			if (users.get(i).getType().equals("admin")) {
-				setUserType("admin");
-		}
-			else if (users.get(i).getType().equals("owner")) {
-				setUserType("owner");
-		}
-			else if (users.get(i).getType().equals("tenant")) {
-				setUserType("tenant");
-		}
-			else {
-				setUserType("none");
-			}
-		}
-		}
-	
-	return getUserType();
-	 }
-	 
-	 public static void setUserType(String type) {
-			userType = type;
-		}	
-	 public static String getUserType() {
-			return userType;
-		}
-	 
-	 public static House enterInformation() {
-		 Residence residenceObj=new Residence();
-		 	apartments apartmentsObj =new apartments() ;
-		 	owners owner1 = new owners();
-		 	owner1.set_name(username);
-			CounterID=CounterID+1;
-			System.out.println("The name of the building in which the apartment is located ?");
-			residenceObj.set_name(myInput.next());
-
-			System.out.println("What is the location of the Residence in which the apartment is located ?");
-			residenceObj.set_location(myInput.next()); 
-			
-			System.out.println("What is the number of floors of the building ?");
-			residenceObj.set_number_floors(myInput.nextInt());
-			
-			System.out.println("How many apartments per floor?");
-			residenceObj.set_Number_apartments_floor(myInput.nextInt());
-			
-			System.out.println("Enter the number of the apartment ?");
-			apartmentsObj.set_number(myInput.nextInt());
-			
-			System.out.println("What floor is the apartment on ?");
-			apartmentsObj.set_which_floor(myInput.nextInt());
-
-			System.out.println("How many people can the apartment accommodate ?");
-			apartmentsObj.set_number_person(myInput.nextInt());
-
-			System.out.println("How space is the room ?");
-			apartmentsObj.set_space(myInput.next());
-			
-			System.out.println("How much are the monthly fees ?");
-			apartmentsObj.set_monthly_fee(myInput.nextInt());
-			
-			System.out.println("The number of bedrooms is :");
-			apartmentsObj.set_bedroom_number(myInput.nextInt());
-			
-			System.out.println("The number of bathrooms is :");
-			apartmentsObj.set_bathrooms_number(myInput.nextInt());
-			
-			System.out.println("The number of balcony is :");
-			apartmentsObj.set_balcony_number(myInput.nextInt());
-			
-			System.out.println("Do the fees include electricity and water ? (y or n)");
-			String s = myInput.next();
-			boolean b=true ;
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
-			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-			apartmentsObj.set_Fees_include_water_electricity(b);
-
-			System.out.println("Is there free internet service ? (y or n)");
-			s = myInput.next();
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
-			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-			apartmentsObj.set_Free_internet(b);
-			
-			System.out.println("Is there a private car park for the building? (y or n)");
-			s = myInput.next();
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
-			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-			residenceObj.set_available_parking(b);
-			
-			System.out.println("Is elevator service available? (y or n)");
-			s = myInput.next();
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
-			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
-			residenceObj.set_Elevator_available(b);	
-			
-			System.out.println("Enter your phone number to contact : ");
-			owner1.set_phone_number(myInput.next());
-			
-			System.out.println("Enter a picture of the apartment");
-			apartmentsObj.set_photo(myInput.next());
-			
-			 House House1=new House(CounterID,residenceObj,apartmentsObj,owner1,true);
-		 	return House1;
-	 }
 //owner		
 		
 		public static boolean addHouse(House House1,String type) {
