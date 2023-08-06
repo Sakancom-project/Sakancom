@@ -1,7 +1,4 @@
 package classes;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class User {
 	private String userName  ;
 			private String passWord ;
