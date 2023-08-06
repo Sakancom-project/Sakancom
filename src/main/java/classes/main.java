@@ -146,7 +146,7 @@ public class main {
 								Scanner input2 = new Scanner(System.in);
 							 	int id = input2.nextInt();
 
-							 bookacc(id);
+							 bookacc(id,username);
 						 break;
 						 case 5:
 							 Scanner inp = new Scanner(System.in);
@@ -167,7 +167,7 @@ public class main {
 		
 					  }; 
 					
-			 } while(in!=6);
+			 } while(in!=8);
 		 }
 		  }
 	 }
@@ -544,7 +544,7 @@ public class main {
 			 }
 			return false;
 			}
-		public static boolean Payment(String name){
+		public static void Payment(String name){
 			int fee;
 			 for ( int i=0; i <IdAndTennantlist.size(); i++ ){
 				 if(IdAndTennantlist.get(i).getTenants().equals(name) ) {
@@ -553,8 +553,15 @@ public class main {
 			 System.out.println("fee: " + fee);	
 			 System.out.println("do you want to pay , Enter the letter Y=Yes or N=No only");	
 			 String aa=myInput.next();
-			 switch(aa) {
-			 case "Y":
+			 Paymentt(aa,name);
+				 }
+					}
+			
+		}
+		
+		public static boolean Paymentt(String aa,String name){
+			switch(aa) {
+			 case "y":
 				 System.out.print("fees payed successfully " + "\npayred date : ");
 				 for (int j=0; j<tenantList.size();j++ ) {
 					 if (tenantList.get(j).getName().equals(name)) {
@@ -562,13 +569,11 @@ public class main {
 					 }
 				 }
 				 break;
-			 case "N":
+			 case "n":
 				 System.out.println("please pay soon ");
 				 break;
 				 
 			 }
-				 }
-					}
 			return true;
 		}
 		public static void Menu() {
@@ -594,14 +599,14 @@ public class main {
 			return true;
 		}
 	
-		public static boolean bookacc(int id) {
+		public static boolean bookacc(int id,String n) {
 			 boolean flagRet=false;
 			for(int i=0 ; i< AdvertisedHouses.size() ; i++) {
 				 if(AdvertisedHouses.get(i).get_ID() == id ) {	
 					 if(AdvertisedHouses.get(i).get_availabilityStatus() ) {
 						 counter=counter+1;
 						  flagRet=true;	 
-						  IdAndTennant t = new IdAndTennant(id,username);
+						  IdAndTennant t = new IdAndTennant(id,n);
 						  IdAndTennantlist.add(t);
 						  System.out.println("The house has been booked");						
 						  if(AdvertisedHouses.get(i).apartmentsObj.get_number_person() == counter) {

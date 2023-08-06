@@ -44,14 +44,17 @@ public class tenantControlPanelTest {
 
 	@Then("show information about owner")
 	public void show_information_about_owner() {
-		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
-		 apartments apartments1=new apartments(1,1,600,4,"400*400",2,2,1,"ww",true,true);
-		 owners owner1 = new owners("mayar","0569902837");
-		 House House1=new House(1,Residence1,apartments1,owner1,true);
-		 main.acceptAndReject("y",House1);
-		 main.bookacc(1);
-		 IdAndTennant IdAndTennant1=new IdAndTennant(1,"mayar");
+		Residence Residence3 = new Residence("Hijjawi","Ramallah",4,4,true,true);
+		 apartments apartments3=new apartments(1,1,600,4,"400*400",2,2,1,"ww",true,true);
+		 owners owner3 = new owners("bayan","0569902837");
+		 House House3=new House(4,Residence3,apartments3,owner3,true);
+		 main.addHouse(House3, "owner");
+		 main.acceptAndReject("y",House3);
+		 assertTrue(main.bookacc(4,"mayar"));
+		 IdAndTennant IdAndTennant1=new IdAndTennant(4,"mayar");
 		 main.IdAndTennantlist.add(IdAndTennant1);
+		 IdAndTennant IdAndTennant2=new IdAndTennant(1,"osama");
+		 main.IdAndTennantlist.add(IdAndTennant2);
 		assertTrue(main.ShowOwnerInformation("mayar"));
 	}
 
@@ -64,14 +67,15 @@ public class tenantControlPanelTest {
 	public void show_the_rent_and_how_to_pay() {
 		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		 apartments apartments1=new apartments(1,1,600,4,"400*400",2,2,1,"ww",true,true);
-		 owners owner1 = new owners("mayar","0569902837");
-		 House House1=new House(1,Residence1,apartments1,owner1,true);
+		 owners owner1 = new owners("bayan","0569902837");
+		 House House1=new House(3,Residence1,apartments1,owner1,true);
+		 main.addHouse(House1, "owner");
 		 main.acceptAndReject("y",House1);
-		 main.bookacc(1);
-		 IdAndTennant IdAndTennant1=new IdAndTennant(1,"mayar");
+		 main.bookacc(3,"mayar");
+		 IdAndTennant IdAndTennant1=new IdAndTennant(3,"mayar");
 		 main.IdAndTennantlist.add(IdAndTennant1);
 		 main.fullTenantList();
-		assertTrue(main.Payment("mayar"));
+		assertTrue(main.Paymentt("y","mayar"));
 	}
 
 }
