@@ -80,7 +80,7 @@ public class main {
 		 Residence residenceObj=new Residence();
 		 	apartments apartmentsObj =new apartments() ;
 		 	owners owner1 = new owners();
-		 	owner1.set_name(username);
+		 	owner1.SetName(username);
 			CounterID=CounterID+1;
 			System.out.println("The name of the building in which the apartment is located ?");
 			residenceObj.set_name(myInput.next());
@@ -148,7 +148,7 @@ public class main {
 			residenceObj.set_Elevator_available(b);	
 			
 			System.out.println("Enter your phone number to contact : ");
-			owner1.set_phone_number(myInput.next());
+			owner1.SetPhoneNumber(myInput.next());
 			
 			System.out.println("Enter a picture of the apartment");
 			apartmentsObj.set_photo(myInput.next());
@@ -209,7 +209,7 @@ public class main {
 					 case 1:
 						String acc; 
 							 for(int i=0;i<arrayHouses.size();i++) {
-									System.out.println("The ID of the house is: " +arrayHouses.get(i).get_ID() );
+									System.out.println("The ID of the house is: " +arrayHouses.get(i).GetID() );
 									System.out.println("House information is : ");
 									System.out.println("1-name of Residence : " +arrayHouses.get(i).residenceObj.get_name()+" \n2-the location of the Residence : " +arrayHouses.get(i).residenceObj.get_location() +"\n3-the number of floors of the building : "+arrayHouses.get(i).residenceObj.get_number_floors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).residenceObj.get_Number_apartments_floor());
 									System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.get_space());
@@ -271,8 +271,8 @@ public class main {
 							 System.out.println("enter id hous to booked");
 
 								for(int i=0 ; i< AdvertisedHouses.size() ; i++) {
-									 if(AdvertisedHouses.get(i).get_availabilityStatus() ) {
-										  System.out.print(AdvertisedHouses.get(i).get_ID()+" || ");
+									 if(AdvertisedHouses.get(i).GetAvailabilityStatus() ) {
+										  System.out.print(AdvertisedHouses.get(i).GetID()+" || ");
 							  
 									 }}
 								Scanner input2 = new Scanner(System.in);
@@ -375,7 +375,7 @@ public class main {
 		
 		public static boolean showHouse() {
 			for(int i=0;i<arrayHouses.size();i++) {
-			System.out.println("The ID of the house is: " +arrayHouses.get(i).get_ID() );
+			System.out.println("The ID of the house is: " +arrayHouses.get(i).GetID() );
 			System.out.println("House information is : ");
 			System.out.println("1-name of Residence : " +arrayHouses.get(i).residenceObj.get_name()+" \n2-the location of the Residence : " +arrayHouses.get(i).residenceObj.get_location() +"\n3-the number of floors of the building : "+arrayHouses.get(i).residenceObj.get_number_floors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).residenceObj.get_Number_apartments_floor());
 			System.out.println("5-the number of the apartment : "+arrayHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+arrayHouses.get(i).apartmentsObj.get_space());
@@ -388,8 +388,8 @@ public class main {
 		
 		public static boolean  controlPanel(String userName) {
 			for(int i=0;i<AdvertisedHouses.size();i++) {
-				if(userName.equals(AdvertisedHouses.get(i).ownerObj.get_name())) {
-				System.out.println("The ID of the house is: " +AdvertisedHouses.get(i).get_ID() );
+				if(userName.equals(AdvertisedHouses.get(i).ownerObj.GetName())) {
+				System.out.println("The ID of the house is: " +AdvertisedHouses.get(i).GetID() );
 				System.out.println("Architecture name : " +AdvertisedHouses.get(i).residenceObj.get_name() );
 				System.out.println("The apartment is located on the floor : " +AdvertisedHouses.get(i).residenceObj.get_number_floors() );
 				System.out.println("This apartment is located on the floor:"+AdvertisedHouses.get(i).apartmentsObj.get_which_floor());
@@ -399,7 +399,7 @@ public class main {
 				System.out.println("The tenants are:");
 				//				System.out.println("Names of owner:"+AdvertisedHouses.get(i).ownerObj.get_name()+"And his phone number:"+AdvertisedHouses.get(i).ownerObj.get_phone_number());
 				for(int k =0 ; k<IdAndTennantlist.size() ; k++) {
-					if(IdAndTennantlist.get(k).gethousingId() == AdvertisedHouses.get(i).get_ID()) {
+					if(IdAndTennantlist.get(k).gethousingId() == AdvertisedHouses.get(i).GetID()) {
 						System.out.print(IdAndTennantlist.get(k).getTenants());
 						for(int h=0 ; h<tenantList.size() ; h++ ) {
 							if(tenantList.get(h).getName().equals(IdAndTennantlist.get(k).getTenants())) {
@@ -460,7 +460,7 @@ public class main {
 			if(AdvertisedHouses.isEmpty()) {System.out.println("***There are no homes available***"); return false;}
 			System.out.println("The available housing : ");
 			for(int i=0;i<AdvertisedHouses.size();i++) {
-				 if(AdvertisedHouses.get(i).get_availabilityStatus()) {
+				 if(AdvertisedHouses.get(i).GetAvailabilityStatus()) {
 					 System.out.println("name of Residence : " +AdvertisedHouses.get(i).residenceObj.get_name()+" \nthe location of the Residence : " +AdvertisedHouses.get(i).residenceObj.get_location() );
 						System.out.println("the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.get_number());
 				 } 
@@ -471,7 +471,7 @@ public class main {
 		
 		public static boolean viewPicturesAndInformation(){
 			for(int i=0;i<AdvertisedHouses.size();i++) {
-				 if(AdvertisedHouses.get(i).get_availabilityStatus()) {
+				 if(AdvertisedHouses.get(i).GetAvailabilityStatus()) {
 					 System.out.println("House information is : ");
 						System.out.println("1-name of Residence : " +AdvertisedHouses.get(i).residenceObj.get_name()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).residenceObj.get_location() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).residenceObj.get_number_floors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).residenceObj.get_Number_apartments_floor());
 						System.out.println("5-the number of the apartment : "+AdvertisedHouses.get(i).apartmentsObj.get_number()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).apartmentsObj.get_which_floor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).apartmentsObj.get_number_person()+" \n8-How space is the room : "+AdvertisedHouses.get(i).apartmentsObj.get_space());
@@ -595,10 +595,10 @@ public class main {
 				 }
 			}
 			for (int i=0 ; i<AdvertisedHouses.size() ; i++){
-			if (AdvertisedHouses.get(i).get_ID()==ID_House) {
+			if (AdvertisedHouses.get(i).GetID()==ID_House) {
 
-				System.out.println(" Owner name is  : " +AdvertisedHouses.get(i).ownerObj.get_name());
-				System.out.println(" Owner phone number is  : " +AdvertisedHouses.get(i).ownerObj.get_phone_number());
+				System.out.println(" Owner name is  : " +AdvertisedHouses.get(i).ownerObj.GetName());
+				System.out.println(" Owner phone number is  : " +AdvertisedHouses.get(i).ownerObj.GetPhoneNumber());
 			}
 			} 
 			return true;
@@ -607,15 +607,15 @@ public class main {
 		public static boolean bookacc(int id,String n) {
 			 boolean flagRet=false;
 			for(int i=0 ; i< AdvertisedHouses.size() ; i++) {
-				 if(AdvertisedHouses.get(i).get_ID() == id ) {	
-					 if(AdvertisedHouses.get(i).get_availabilityStatus() ) {
+				 if(AdvertisedHouses.get(i).GetID() == id ) {	
+					 if(AdvertisedHouses.get(i).GetAvailabilityStatus() ) {
 						 counter=counter+1;
 						  flagRet=true;	 
 						  IdAndTennant t = new IdAndTennant(id,n);
 						  IdAndTennantlist.add(t);
 						  System.out.println("The house has been booked");						
 						  if(AdvertisedHouses.get(i).apartmentsObj.get_number_person() == counter) {
-							  AdvertisedHouses.get(i).set_availabilityStatus(false);
+							  AdvertisedHouses.get(i).SetAvailabilityStatus(false);
 							  
 						  }
 						  

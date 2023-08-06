@@ -1,6 +1,7 @@
 package classes;
 import java.util.ArrayList;
 
+
 public class Admin {
 	private String name;
 	private String password;
@@ -8,11 +9,11 @@ public class Admin {
 	private String phoneNumber;
 	ArrayList<House> arrayHouses = new ArrayList<House>();
 	
-	public String getName() {
+	public String GetName() {
 		return name ;
 	}
-	public void SetName(String NewName) {
-		name = NewName;
+	public void SetName(String new_name) {
+		name = new_name;
 	}
 	public String getPassword() 
 	{

@@ -2,7 +2,9 @@ package najah.edu.acceptance_tests;
 
 import static org.junit.Assert.assertTrue;
 
-
+import classes.House;
+import classes.Residence;
+import classes.apartments;
 import classes.main;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

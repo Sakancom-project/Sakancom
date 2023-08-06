@@ -1,8 +1,4 @@
 package classes;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import io.cucumber.java.it.Date;
 
 public class tenant {
 	 private String name;

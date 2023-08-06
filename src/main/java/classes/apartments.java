@@ -1,5 +1,4 @@
 package classes;
-//شقة
 public class apartments {
 	private int number ;
 	private int which_floor;

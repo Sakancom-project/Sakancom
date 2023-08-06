@@ -15,16 +15,16 @@ public class House {
 		this.ownerObj=ownerObj;
 		this.availabilityStatus=availabilityStatus;
 	}
-	public int get_ID() {
+	public int GetID() {
 		return ID;
 	}
-	public void set_ID(int new_ID) {
-		ID = new_ID;
+	public void SetID(int NewID) {
+		ID = NewID;
 	}
-	public boolean get_availabilityStatus() {
+	public boolean GetAvailabilityStatus() {
 		return availabilityStatus;
 	}
-	public void set_availabilityStatus(boolean new_availabilityStatus) {
-		availabilityStatus = new_availabilityStatus;
+	public void SetAvailabilityStatus(boolean NewAvailabilityStatus) {
+		availabilityStatus = NewAvailabilityStatus;
 	}
 }
