@@ -121,29 +121,29 @@ public class main {
 			System.out.println("Do the fees include electricity and water ? (y or n)");
 			String s = myInput.next();
 			boolean b=true ;
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
+			if(s.equals("y") && s.equals("Y")) { b=true;}
+			else if(s.equals("n") && s.equals("N")) { b=false;}
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
 			apartmentsObj.set_Fees_include_water_electricity(b);
 
 			System.out.println("Is there free internet service ? (y or n)");
 			s = myInput.next();
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
+			if(s.equals("y") && s.equals("Y")) { b=true;}
+			else if(s.equals("n") && s.equals("N")) { b=false;}
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
 			apartmentsObj.set_Free_internet(b);
 			
 			System.out.println("Is there a private car park for the building? (y or n)");
 			s = myInput.next();
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
+			if(s.equals("y") && s.equals("Y")) { b=true;}
+			else if(s.equals("n") && s.equals("N")) { b=false;}
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
 			residenceObj.set_available_parking(b);
 			
 			System.out.println("Is elevator service available? (y or n)");
 			s = myInput.next();
-			if(s=="y" && s=="Y") { b=true;}
-			else if(s=="n" && s=="N") { b=false;}
+			if(s.equals("y") && s.equals("Y")) { b=true;}
+			else if(s.equals("n") && s.equals("N")) { b=false;}
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
 			residenceObj.set_Elevator_available(b);	
 			
