@@ -1,57 +1,57 @@
 package classes;
-//عمارة
+
 public class Residence {
 	private String name;
 	private String location ;
-	private int number_floors ;
-	private int Number_apartments_floor;
-	private boolean available_parking;
-	private boolean Elevator_available;
+	private int numberFloors ;
+	private int numberApartmentsFloor;
+	private boolean availableParking;
+	private boolean elevatorAvailable;
 	
 	public Residence() {};
 	
-	public Residence(String name,String location,int number_floors,int Number_apartments_floor,boolean available_parking,boolean Elevator_available) {
+	public Residence(String name,String location,int numberFloors,int numberApartmentsFloor,boolean availableParking,boolean elevatorAvailable) {
 		this.name=name;
 		this.location=location;
-		this.number_floors=number_floors;
-		this.Number_apartments_floor=Number_apartments_floor;
-		this.available_parking=available_parking;
-		this.Elevator_available=Elevator_available;
+		this.numberFloors=numberFloors;
+		this.numberApartmentsFloor=numberApartmentsFloor;
+		this.availableParking=availableParking;
+		this.elevatorAvailable=elevatorAvailable;
 	};
-	public String get_name() {
+	public String getName() {
 		return name;
 	}
-	public void set_name(String new_name) {
-		name = new_name;
+	public void setName(String newName) {
+		name = newName;
 	}
-	public String get_location() {
+	public String getLocation() {
 		return location;
 	}
-	public void set_location(String new_location) {
-		location = new_location;
+	public void setLocation(String newLocation) {
+		location = newLocation;
 	}
-	public int get_number_floors() {
-		return number_floors;
+	public int getNumberFloors() {
+		return numberFloors;
 	}
-	public void set_number_floors(int new_number_floors) {
-		number_floors = new_number_floors;
+	public void setNumberFloors(int newNumberFloors) {
+		numberFloors = newNumberFloors;
 	}
-	public int get_Number_apartments_floor() {
-		return Number_apartments_floor;
+	public int getNumberApartmentsFloor() {
+		return numberApartmentsFloor;
 	}
-	public void set_Number_apartments_floor(int new_Number_apartments_floor) {
-		Number_apartments_floor = new_Number_apartments_floor;
+	public void setNumberApartmentsFloor(int newNumberApartmentsFloor) {
+		numberApartmentsFloor = newNumberApartmentsFloor;
 	}
-	public boolean get_available_parking() {
-		return available_parking;
+	public boolean getAvailableParking() {
+		return availableParking;
 	}
-	public void set_available_parking(boolean new_available_parking) {
-		available_parking = new_available_parking;
+	public void setAvailableParking(boolean newAvailableParking) {
+		availableParking = newAvailableParking;
 	}
-	public boolean get_Elevator_available() {
-		return Elevator_available;
+	public boolean getElevatorAvailable() {
+		return elevatorAvailable;
 	}
-	public void set_Elevator_available(boolean new_Elevator_available) {
-		Elevator_available = new_Elevator_available;
+	public void setElevatorAvailable(boolean newElevatorAvailable) {
+		elevatorAvailable = newElevatorAvailable;
 	}
 }
