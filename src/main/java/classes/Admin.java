@@ -1,6 +1,5 @@
 package classes;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Admin {
 	private String name;
@@ -9,11 +8,11 @@ public class Admin {
 	private String phoneNumber;
 	ArrayList<House> arrayHouses = new ArrayList<House>();
 	
-	public String get_name() {
+	public String getName() {
 		return name ;
 	}
-	public void set_name(String new_name) {
-		name = new_name;
+	public void SetName(String NewName) {
+		name = NewName;
 	}
 	public String getPassword() 
 	{
