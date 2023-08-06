@@ -18,14 +18,14 @@ public class main {
 	 
 	 public static void main(String[] args) {
 		 fullTenantList();
-		 int in=0;
+		 
 		 while (true) {
 		System.out.println("Enter your username please");
 		 username = myInput.next();
 		System.out.println("Enter your password please");
 		String pass = myInput.next();
 		String type = login(username, pass);
-		menu_type(in,type);
+		menu_type(type);
 		}
 	 }
 	 
@@ -157,7 +157,8 @@ public class main {
 	 }
 	 
 	 
-	 public static void menu_type(int in,String type)  {
+	 public static void menu_type(String type)  {
+		 int in;
 		 if(type.equals("owner")) {
 			 do { 
 			 System.out.println(" ((( owner menu ))) : ");
