@@ -19,7 +19,7 @@ public class main {
 	 public static void main(String[] args) {
 		 fullTenantList();
 		 
-		 while (true) {
+		 do {
 		System.out.println("Enter your username please");
 		 username = myInput.next();
 		System.out.println("Enter your password please");
@@ -27,6 +27,7 @@ public class main {
 		String type = login(username, pass);
 		menu_type(type);
 		}
+		 while (username=="exit");
 	 }
 	 
 	 
