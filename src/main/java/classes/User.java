@@ -7,10 +7,10 @@ public class User {
 			private String type ;
 			///I private String type = SET GET
 			public User(){}
-			public User (String userName , String pass , String Type) {
+			public User (String userName , String pass , String typee) {
 			this.userName = userName;
 			this.passWord = pass;
-			this.type = Type;
+			this.type = typee;
 			}
 			public void setUserName(String name) {
 			this.userName = name;

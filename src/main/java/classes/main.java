@@ -388,7 +388,7 @@ public class main {
 		
 		public static boolean  controlPanel(String userName) {
 			for(int i=0;i<AdvertisedHouses.size();i++) {
-				if(userName.equals(AdvertisedHouses.get(i).OwnerObj.getName())) {
+				if(userName.equals(AdvertisedHouses.get(i).ownerObj.getName())) {
 				System.out.println("The ID of the house is: " +AdvertisedHouses.get(i).getId() );
 				System.out.println("Architecture name : " +AdvertisedHouses.get(i).residenceObj.getName() );
 				System.out.println("The apartment is located on the floor : " +AdvertisedHouses.get(i).residenceObj.getNumberFloors() );
@@ -397,7 +397,7 @@ public class main {
 				System.out.println("Number of bathrooms:"+AdvertisedHouses.get(i).apartmentsObj.getBathroomsNumber());
 				System.out.println("balcony number:"+AdvertisedHouses.get(i).apartmentsObj.getBalconyNumber());
 				System.out.println("The tenants are:");
-				//				System.out.println("Names of owner:"+AdvertisedHouses.get(i).OwnerObj.get_name()+"And his phone number:"+AdvertisedHouses.get(i).OwnerObj.get_phone_number());
+				//				System.out.println("Names of owner:"+AdvertisedHouses.get(i).ownerObj.get_name()+"And his phone number:"+AdvertisedHouses.get(i).ownerObj.get_phone_number());
 				for(int k =0 ; k<IdAndTennantlist.size() ; k++) {
 					if(IdAndTennantlist.get(k).gethousingId() == AdvertisedHouses.get(i).getId()) {
 						System.out.print(IdAndTennantlist.get(k).getTenants());
@@ -597,8 +597,8 @@ public class main {
 			for (int i=0 ; i<AdvertisedHouses.size() ; i++){
 			if (AdvertisedHouses.get(i).getId()==ID_House) {
 
-				System.out.println(" Owner name is  : " +AdvertisedHouses.get(i).OwnerObj.getName());
-				System.out.println(" Owner phone number is  : " +AdvertisedHouses.get(i).OwnerObj.getPhoneNumber());
+				System.out.println(" Owner name is  : " +AdvertisedHouses.get(i).ownerObj.getName());
+				System.out.println(" Owner phone number is  : " +AdvertisedHouses.get(i).ownerObj.getPhoneNumber());
 			}
 			} 
 			return true;
@@ -615,7 +615,7 @@ public class main {
 						  IdAndTennantlist.add(t);
 						  System.out.println("The house has been booked");						
 						  if(AdvertisedHouses.get(i).apartmentsObj.getNumberPerson() == counter) {
-							  AdvertisedHouses.get(i).SetAvailabilityStatus(false);
+							  AdvertisedHouses.get(i).setAvailabilityStatus(false);
 							  
 						  }
 						  

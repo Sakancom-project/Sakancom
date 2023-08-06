@@ -2,32 +2,32 @@ package classes;
 public class apartments {
 	private int number ;
 	private int whichFloor;
-	private int MonthlyFee;
-	private int NumberPerson;
+	private int monthlyFee;
+	private int numberPerson;
 	private String space;
-	private int BedroomNumber;
-	private int BathroomsNumber;
-	private int BalconyNumber;
+	private int bedroomNumber;
+	private int bathroomsNumber;
+	private int balconyNumber;
 	
 	private String photo;
-	private boolean FreeInternet;
-	private boolean FeesIncludeWaterElectricity;
+	private boolean freeInternet;
+	private boolean feesIncludeWaterElectricity;
 	
 
-	public apartments() {};
-	public apartments(int number,int whichFloor,int MonthlyFee,int NumberPerson,String space,int BedroomNumber, int BathroomsNumber, int BalconyNumber, String photo,boolean FreeInternet,boolean FeesIncludeWaterElectricity) {
+	public apartments() {}
+	public apartments(int number,int whichFloor,int monthlyFee,int numberPerson,String space,int bedroomNumber, int bathroomsNumber, int balconyNumber, String photo,boolean freeInternet,boolean feesIncludeWaterElectricity) {
 		this.number=number;
 		this.whichFloor=whichFloor;
-		this.MonthlyFee=MonthlyFee;
-		this.NumberPerson=NumberPerson;
+		this.monthlyFee=monthlyFee;
+		this.numberPerson=numberPerson;
 		this.space=space;
-		this.BedroomNumber=BedroomNumber;
-		this.BathroomsNumber=BathroomsNumber;
-		this.BalconyNumber=BalconyNumber;
+		this.bedroomNumber=bedroomNumber;
+		this.bathroomsNumber=bathroomsNumber;
+		this.balconyNumber=balconyNumber;
 		this.photo=photo;
-		this.FreeInternet=FreeInternet;
-		this.FeesIncludeWaterElectricity=FeesIncludeWaterElectricity;
-	};
+		this.freeInternet=freeInternet;
+		this.feesIncludeWaterElectricity=feesIncludeWaterElectricity;
+	}
 	
 	public int getNumber() {
 		return number;
@@ -42,16 +42,16 @@ public class apartments {
 		whichFloor = NewWhichFloor;
 	}
 	public int GetMonthlyFee() {
-		return MonthlyFee;
+		return monthlyFee;
 	}
 	public void setMonthlyFee(int NewMonthlyFee) {
-		MonthlyFee = NewMonthlyFee;
+		monthlyFee = NewMonthlyFee;
 	}
 	public int getNumberPerson() {
-		return NumberPerson;
+		return numberPerson;
 	}
 	public void setNumberPerson(int newNumberPerson) {
-		NumberPerson = newNumberPerson;
+		numberPerson = newNumberPerson;
 	}
 	public String getSpace() {
 		return space;
@@ -60,22 +60,22 @@ public class apartments {
 		space = NewSpace;
 	}
 	public int getBedroomNumber() {
-		return  BedroomNumber;
+		return  bedroomNumber;
 	}
 	public void setBedroomNumber(int NewBedroomNumber) {
-		BedroomNumber = NewBedroomNumber;
+		bedroomNumber = NewBedroomNumber;
 	}
 	public int getBathroomsNumber() {
-		return BathroomsNumber;
+		return bathroomsNumber;
 	}
 	public void setBathroomsNumber(int NewBathroomsNumber) {
-		BathroomsNumber = NewBathroomsNumber;
+		bathroomsNumber = NewBathroomsNumber;
 	}
 	public int getBalconyNumber() {
-		return BalconyNumber;
+		return balconyNumber;
 	}
 	public void setBalconyNumber(int NewBalconyNumber) {
-		BalconyNumber = NewBalconyNumber;
+		balconyNumber = NewBalconyNumber;
 	}
 	public String getPhoto() {
 		return photo;
@@ -84,15 +84,15 @@ public class apartments {
 		photo = NewPhoto;
 	}
 	public boolean getFreeInternet() {
-		return FreeInternet;
+		return freeInternet;
 	}
 	public void setFreeInternet(boolean NewFreeInternet) {
-		FreeInternet = NewFreeInternet;
+		freeInternet = NewFreeInternet;
 	}
 	public boolean getFeesIncludeWaterElectricity() {
-		return FeesIncludeWaterElectricity;
+		return feesIncludeWaterElectricity;
 	}
 	public void setFeesIncludeWaterElectricity(boolean NewFeesIncludeWaterElectricity) {
-		FeesIncludeWaterElectricity = NewFeesIncludeWaterElectricity;
+		feesIncludeWaterElectricity = NewFeesIncludeWaterElectricity;
 	}
 }

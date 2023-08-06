@@ -17,7 +17,7 @@ public class Residence {
 		this.numberApartmentsFloor=numberApartmentsFloor;
 		this.availableParking=availableParking;
 		this.elevatorAvailable=elevatorAvailable;
-	};
+	}
 	public String getName() {
 		return name;
 	}
