@@ -30,14 +30,14 @@ public class tenant {
 	}
 
 	private boolean paid=false;
-	public tenant(String name, String phone, int age, String major, boolean Student, String furniture,String PayDate) {
+	public tenant(String name, String phone, int age, String major, boolean Student,String PayDate) {
 		super();
 		this.name = name;
 		this.phone = phone;
 		this.age = age;
 		this.major = major;
 		this.Student = Student;
-		this.furniture = furniture;
+		
 		this.PayDate=PayDate;
 	}
 	
@@ -84,8 +84,8 @@ public class tenant {
 		return furniture;
 	}
 	
-	public void setFurniture(String furniture) {
-		this.furniture = furniture;
+	public void setFurniture(String newFurniture) {
+		furniture = newFurniture;
 	}
 	 
 }

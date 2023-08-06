@@ -4,13 +4,15 @@ public class House {
 	private int ID;
 	public Residence residenceObj;
 	public apartments apartmentsObj ;
+	public owners ownerObj ;
 	private boolean availabilityStatus;
 
 	public House() {}
-	public House(int ID,Residence residenceObj,apartments apartmentsObj,boolean availabilityStatus) {
+	public House(int ID,Residence residenceObj,apartments apartmentsObj,owners ownerObj,boolean availabilityStatus) {
 		this.ID=ID;
 		this.residenceObj=residenceObj;
 		this.apartmentsObj=apartmentsObj;
+		this.ownerObj=ownerObj;
 		this.availabilityStatus=availabilityStatus;
 	}
 	public int get_ID() {

@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class owners {
 	Scanner myInput = new Scanner(System.in);
 	
-	private int numberOfHouses ;
+	
 	private String name ;
 	private String phone_number;
 	public owners() {};
 	
 	
-	public owners(int numberOfHouses,String name , String phone_number ) {
-		this.numberOfHouses=numberOfHouses;
+	public owners(String name , String phone_number ) {
+		
 		this.name=name;
 		this.phone_number=phone_number;
 	};
@@ -29,13 +29,7 @@ public class owners {
 	public void set_phone_number(String new_phone_number) {
 		phone_number = new_phone_number;
 	}
-	public int get_numberOfHouses() {
-		return numberOfHouses ;
-	}
-	public void set_numberOfHouses(int new_numberOfHouses) {
-		numberOfHouses = new_numberOfHouses;
-	}
-	
+		
 //	
 //	
 //	public void showHouse() {

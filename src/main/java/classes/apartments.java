@@ -6,18 +6,25 @@ public class apartments {
 	private int monthly_fee;
 	private int number_person;
 	private String space;
+	private int bedroom_number;
+	private int bathrooms_number;
+	private int balcony_number;
+	
 	private String photo;
 	private boolean Free_internet;
 	private boolean Fees_include_water_electricity;
 	
 
 	public apartments() {};
-	public apartments(int number,int which_floor,int monthly_fee,int number_person,String space,String photo,boolean Free_internet,boolean Fees_include_water_electricity) {
+	public apartments(int number,int which_floor,int monthly_fee,int number_person,String space,int bedroom_number, int bathrooms_number, int balcony_number, String photo,boolean Free_internet,boolean Fees_include_water_electricity) {
 		this.number=number;
 		this.which_floor=which_floor;
 		this.monthly_fee=monthly_fee;
 		this.number_person=number_person;
 		this.space=space;
+		this.bedroom_number=bedroom_number;
+		this.bathrooms_number=bathrooms_number;
+		this.balcony_number=balcony_number;
 		this.photo=photo;
 		this.Free_internet=Free_internet;
 		this.Fees_include_water_electricity=Fees_include_water_electricity;
@@ -52,6 +59,24 @@ public class apartments {
 	}
 	public void set_space(String new_space) {
 		space = new_space;
+	}
+	public int get_bedroom_number() {
+		return  bedroom_number;
+	}
+	public void set_bedroom_number(int new_bedroom_number) {
+		bedroom_number = new_bedroom_number;
+	}
+	public int get_bathrooms_number() {
+		return bathrooms_number;
+	}
+	public void set_bathrooms_number(int new_bathrooms_number) {
+		bathrooms_number = new_bathrooms_number;
+	}
+	public int get_balcony_number() {
+		return balcony_number;
+	}
+	public void set_balcony_number(int new_balcony_number) {
+		balcony_number = new_balcony_number;
 	}
 	public String get_photo() {
 		return photo;

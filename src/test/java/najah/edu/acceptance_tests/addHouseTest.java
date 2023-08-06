@@ -20,8 +20,9 @@ public class addHouseTest {
 	@Then("Add the house in the house array list of this owner")
 	public void add_the_house_in_the_house_array_list_of_this_owner() {
 		 Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
-		 apartments apartments1=new apartments(1,1,600,4,"400*400","ww",true,true);
-		 House House1=new House(1,Residence1,apartments1,true);
+		 apartments apartments1=new apartments(1,1,600,4,"400*400",2,2,1,"ww",true,true);
+		 owners owner1 = new owners("mayar","0569902837");
+		 House House1=new House(1,Residence1,apartments1,owner1,true);
 	   assertTrue(main.addHouse(House1,"owner"));
 	}
 	@Given("The admin has entered the house information")
@@ -32,8 +33,9 @@ public class addHouseTest {
 	@Then("Add the house in the advertised houses arrayList")
 	public void add_the_house_in_the_advertised_houses_array_list() {
 		 Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
-		 apartments apartments1=new apartments(1,1,600,4,"400*400","ww",true,true);
-		 House House1=new House(1,Residence1,apartments1,true);
+		 apartments apartments1=new apartments(1,1,600,4,"400*400",2,2,1,"ww",true,true);
+		 owners owner1 = new owners("mayar","0569902837");
+		 House House1=new House(1,Residence1,apartments1,owner1,true);
 	   assertTrue(main.addHouse(House1,"admin"));
 	}
 }

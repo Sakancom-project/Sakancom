@@ -21,17 +21,17 @@ public class main {
 //			System.out.print();
 		 while (true) {
 		System.out.println("Enter your username please");
-		String username1 = myInput.next();
+		 username = myInput.next();
 		System.out.println("Enter your password please");
 		String pass = myInput.next();
-		String type = login(username1, pass);
+		String type = login(username, pass);
 		int in;
 		
 		
 		 if(type.equals("owner")) {
 			 do { 
 			 System.out.println(" ((( owner menu ))) : ");
-			 System.out.println("1-add House\n2-Modify information\n3-show House\n4-Exit");
+			 System.out.println("1-add House\n2-Modify information\n3-show House\n4-control panel\n5-Exit");
 			  in = myInput.nextInt();
 				 switch(in) {
 				 case 1:
@@ -57,18 +57,21 @@ public class main {
 					 showHouse();
 					 break;
 				 case 4:
+					 controlPanel(username);
+					 break; 
+				 case 5:
 					 
 					 break; 
 				 }
 				 
 			}
-			 while(in!=4);
+			 while(in!=5);
 			  
 		}
 		 else if (type.equals("admin")) {
 			 do { 
 				 System.out.println(" ((( admin menu ))) : ");
-				 System.out.println("1-accept and reject\n2-show advertised houses\n3-add at advertised houses\n4-Exit");
+				 System.out.println("1-accept and reject\n2-show advertised houses\n3-add at advertised houses\n4-Watching reservations via the system\n5-Exit");
 				 in = myInput.nextInt();
 					 switch(in) {
 					 case 1:
@@ -94,16 +97,20 @@ public class main {
 							addHouse(House1,"admin");
 						 break; 
 					 case 4:
-						 
+						 watchingReservations();
 						 break; 	 
+					 case 5:
+						 
+						 break;  
+						 
 					 } 
 			 }	
-			 while(in!=4);
+			 while(in!=5);
 		 }
 		 else {
 			 do { 
 				 System.out.println(" ((( tenants menu ))) : ");
-				 System.out.println("1-view the available housing \n2- view pictures of housing and other information\n3-\n4-bookacc\n5-AddFurniture\n6-Exit");
+				 System.out.println("1-view the available housing \n2- view pictures of housing and other information\n3-control panel\n4-book accommodation\n5-AddFurniture\n6- Show Furniture \n7-see the neighbours \n8- Exit");
 				 in = myInput.nextInt();
 					 switch(in) {
 					 case 1:
@@ -120,7 +127,7 @@ public class main {
 							 ShowTenant(username);
 							 break;
 						 case 2:
-							 //still not done until bayan do it 
+							 ShowOwnerInformation(username);
 							 break;		
 						 case 3:
 							 Payment(username);
@@ -146,10 +153,20 @@ public class main {
 
 								System.out.println("Enter your Furniture to add  please");
 								String	Furniture = inp.next();
-								AddFurniture(Furniture);
+								AddFurniture(Furniture,username);
 							 break;
+							 
+						 case 6 :
+							 ShowFurniture(username);
+							 break;
+						 case 7 :
+							 SeeNeighbours(username);
+							 break;
+						 case 8:
+							 break;
+		
 					  }; 
-					 
+					
 			 } while(in!=6);
 		 }
 		  }
@@ -204,6 +221,8 @@ public class main {
 	 public static House enterInformation() {
 		 Residence residenceObj=new Residence();
 		 	apartments apartmentsObj =new apartments() ;
+		 	owners owner1 = new owners();
+		 	owner1.set_name(username);
 			CounterID=CounterID+1;
 			System.out.println("The name of the building in which the apartment is located ?");
 			residenceObj.set_name(myInput.next());
@@ -211,7 +230,7 @@ public class main {
 			System.out.println("What is the location of the Residence in which the apartment is located ?");
 			residenceObj.set_location(myInput.next()); 
 			
-			System.out.println("What is the number of floors of the building?");
+			System.out.println("What is the number of floors of the building ?");
 			residenceObj.set_number_floors(myInput.nextInt());
 			
 			System.out.println("How many apartments per floor?");
@@ -223,7 +242,7 @@ public class main {
 			System.out.println("What floor is the apartment on ?");
 			apartmentsObj.set_which_floor(myInput.nextInt());
 
-			System.out.println("How many people can the apartment accommodate?");
+			System.out.println("How many people can the apartment accommodate ?");
 			apartmentsObj.set_number_person(myInput.nextInt());
 
 			System.out.println("How space is the room ?");
@@ -231,6 +250,15 @@ public class main {
 			
 			System.out.println("How much are the monthly fees ?");
 			apartmentsObj.set_monthly_fee(myInput.nextInt());
+			
+			System.out.println("The number of bedrooms is :");
+			apartmentsObj.set_bedroom_number(myInput.nextInt());
+			
+			System.out.println("The number of bathrooms is :");
+			apartmentsObj.set_bathrooms_number(myInput.nextInt());
+			
+			System.out.println("The number of balcony is :");
+			apartmentsObj.set_balcony_number(myInput.nextInt());
 			
 			System.out.println("Do the fees include electricity and water ? (y or n)");
 			String s = myInput.next();
@@ -261,9 +289,13 @@ public class main {
 			else { System.out.println("Please, pay attention !!! Enter the letter Y=Yes or N=No only"); }
 			residenceObj.set_Elevator_available(b);	
 			
+			System.out.println("Enter your phone number to contact : ");
+			owner1.set_phone_number(myInput.next());
+			
 			System.out.println("Enter a picture of the apartment");
 			apartmentsObj.set_photo(myInput.next());
-		 	House House1 = new House(CounterID,residenceObj,apartmentsObj,true);
+			
+			 House House1=new House(CounterID,residenceObj,apartmentsObj,owner1,true);
 		 	return House1;
 	 }
 //owner		
@@ -347,6 +379,35 @@ public class main {
 			System.out.println("***The array is empty***");
 			return true;
 		}
+		
+		
+		public static boolean  controlPanel(String userName) {
+			for(int i=0;i<AdvertisedHouses.size();i++) {
+				if(userName.equals(AdvertisedHouses.get(i).ownerObj.get_name())) {
+				System.out.println("The ID of the house is: " +AdvertisedHouses.get(i).get_ID() );
+				System.out.println("Architecture name : " +AdvertisedHouses.get(i).residenceObj.get_name() );
+				System.out.println("The apartment is located on the floor : " +AdvertisedHouses.get(i).residenceObj.get_number_floors() );
+				System.out.println("This apartment is located on the floor:"+AdvertisedHouses.get(i).apartmentsObj.get_which_floor());
+				System.out.println("It contains a number of bedrooms:"+AdvertisedHouses.get(i).apartmentsObj.get_bedroom_number());
+				System.out.println("Number of bathrooms:"+AdvertisedHouses.get(i).apartmentsObj.get_bathrooms_number());
+				System.out.println("balcony number:"+AdvertisedHouses.get(i).apartmentsObj.get_balcony_number());
+				System.out.println("The tenants are:");
+				//				System.out.println("Names of owner:"+AdvertisedHouses.get(i).ownerObj.get_name()+"And his phone number:"+AdvertisedHouses.get(i).ownerObj.get_phone_number());
+				for(int k =0 ; k<IdAndTennantlist.size() ; k++) {
+					if(IdAndTennantlist.get(k).gethousingId() == AdvertisedHouses.get(i).get_ID()) {
+						System.out.print(IdAndTennantlist.get(k).getTenants());
+						for(int h=0 ; h<tenantList.size() ; h++ ) {
+							if(tenantList.get(h).getName().equals(IdAndTennantlist.get(k).getTenants())) {
+								System.out.println("\t"+tenantList.get(h).getPhone());
+							}
+						}
+					}
+				}
+				}
+			}
+			return true;
+			
+		}
 
 //admain		
 		
@@ -380,7 +441,16 @@ public class main {
 		}
 		
 		
-
+		public static boolean watchingReservations() {
+			for(int i=0 ; i<IdAndTennantlist.size() ; i++) {
+				
+				System.out.println( "housing Id is : "+IdAndTennantlist.get(i).gethousingId());
+				System.out.println( "Who is the tenant : "+IdAndTennantlist.get(i).getTenants());
+			}
+			
+			return true;
+			
+		}
 		public static boolean viewAvailableHousing(){
 			if(AdvertisedHouses.isEmpty()) {System.out.println("***There are no homes available***"); return false;}
 			System.out.println("The available housing : ");
@@ -408,17 +478,26 @@ public class main {
 			return true;
 		}
 		
-		public static Boolean AddFurniture(String Furniture){
+		public static void fullTenantList() {
+			tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
+			tenant tenant2=new tenant("osama","0569834654",19,"enj",true,"12-4-2023");
+			tenantList.add(tenant1);
+			tenantList.add(tenant2);
+			
+		
+		}
+		
+		public static Boolean AddFurniture(String Furniture , String tenantName){
 			 for ( int i=0; i <tenantList.size(); i++ ) {
-				 if (username.equals(tenantList.get(i).getName())){
+				 if (tenantName.equals(tenantList.get(i).getName())){
 					 tenantList.get(i).setFurniture(Furniture);
-					 System.out.println("dobe");
+					 System.out.println("done");
 					 return true;
 				 }
 			 }
 			 return false;
 		 }
-		public static void ShowTenant(String name){
+		public static boolean ShowTenant(String name){
 			 for ( int i=0; i <tenantList.size(); i++ ) {
 			if(tenantList.get(i).getName().equals(name)){
 				System.out.println(" the tenat information is : ");
@@ -431,17 +510,66 @@ public class main {
 
 			}
 			 }
+			return true;
+		}
+		public  static boolean SeeNeighbours(String username2) {
+			for ( int i=0; i <tenantList.size(); i++ ) {
+				 if (username2.equals(tenantList.get(i).getName())){
+					 if(tenantList.get(i).getIsStudent()) {
+						 System.out.println("your neighbours : ");
+							for ( int j=0; j<tenantList.size(); j++ ) {
+								if( i!=j ){
+									 if(tenantList.get(j).getIsStudent()) {
+										 System.out.println( tenantList.get(j).getName());
+										 System.out.print("major :" + tenantList.get(j).getMajor());
+										 System.out.print(  "phone :" + tenantList.get(j).getPhone());
+									 }
+										}
+							
+										}
+							return true;
+					 }
+				 }
+				}
+			return false ;
 		}
 
-		public static void Payment(String name){
+
+		public  static boolean ShowFurniture(String username2) {
 			 for ( int i=0; i <tenantList.size(); i++ ) {
-					if(tenantList.get(i).getName().equals(name)){
-						System.out.println("payDate : " + tenantList.get(i).getPayDate());
-						System.out.println("paid : " +tenantList.get(i).isPaid());
-			
+				 if (username2.equals(tenantList.get(i).getName())){
+					System.out.println("furniture : " + tenantList.get(i).getFurniture());
+					 return true;
+				 }
+			 }
+			return false;
+			}
+		public static boolean Payment(String name){
+			int fee;
+			 for ( int i=0; i <IdAndTennantlist.size(); i++ ){
+				 if(IdAndTennantlist.get(i).getTenants().equals(name) ) {
+						fee= AdvertisedHouses.get(i).apartmentsObj.get_monthly_fee();
+						
+			 System.out.println("fee: " + fee);	
+			 System.out.println("do you want to pay , Enter the letter Y=Yes or N=No only");	
+			 String aa=myInput.next();
+			 switch(aa) {
+			 case "Y":
+				 System.out.print("fees payed successfully " + "\npayred date : ");
+				 for (int j=0; j<tenantList.size();j++ ) {
+					 if (tenantList.get(j).getName().equals(name)) {
+						 System.out.print(tenantList.get(j).getPayDate());
+					 }
+				 }
+				 break;
+			 case "N":
+				 System.out.println("please pay soon ");
+				 break;
+				 
+			 }
+				 }
 					}
-					}
-			
+			return true;
 		}
 		public static void Menu() {
 			System.out.println(" Choose one of these options : ");
@@ -449,6 +577,22 @@ public class main {
 			System.out.println(" 2- Informations about Owner and how to Contact ");
 			System.out.println(" 3- the Rent and when to pay  ");
 }	
+		public static boolean ShowOwnerInformation(String username) {
+			int ID_House =0;
+			for(int i=0 ; i< IdAndTennantlist.size() ; i++) {
+				 if(IdAndTennantlist.get(i).getTenants().equals(username) ) {
+					 ID_House=IdAndTennantlist.get(i).gethousingId();
+				 }
+			}
+			for (int i=0 ; i<AdvertisedHouses.size() ; i++){
+			if (AdvertisedHouses.get(i).get_ID()==ID_House) {
+
+				System.out.println(" Owner name is  : " +AdvertisedHouses.get(i).ownerObj.get_name());
+				System.out.println(" Owner phone number is  : " +AdvertisedHouses.get(i).ownerObj.get_phone_number());
+			}
+			} 
+			return true;
+		}
 	
 		public static boolean bookacc(int id) {
 			 boolean flagRet=false;
@@ -459,8 +603,7 @@ public class main {
 						  flagRet=true;	 
 						  IdAndTennant t = new IdAndTennant(id,username);
 						  IdAndTennantlist.add(t);
-						  System.out.println("The house has been booked");
-//						
+						  System.out.println("The house has been booked");						
 						  if(AdvertisedHouses.get(i).apartmentsObj.get_number_person() == counter) {
 							  AdvertisedHouses.get(i).set_availabilityStatus(false);
 							  
@@ -477,13 +620,6 @@ public class main {
 								 
 				}
 		
-		public static void fullTenantList() {
-			tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"","12-4-2023");
-			tenant tenant2=new tenant("osama","0569902837",19,"enj",true,"","12-4-2023");
-			tenantList.add(tenant1);
-			tenantList.add(tenant2);
-			
 		
-		}
 		
 }
