@@ -62,37 +62,37 @@ public class apartments {
 	public int getBedroomNumber() {
 		return  bedroomNumber;
 	}
-	public void setBedroomNumber(int NewBedroomNumber) {
-		bedroomNumber = NewBedroomNumber;
+	public void setBedroomNumber(int newBedroomNumber) {
+		bedroomNumber = newBedroomNumber;
 	}
 	public int getBathroomsNumber() {
 		return bathroomsNumber;
 	}
-	public void setBathroomsNumber(int NewBathroomsNumber) {
-		bathroomsNumber = NewBathroomsNumber;
+	public void setBathroomsNumber(int newBathroomsNumber) {
+		bathroomsNumber = newBathroomsNumber;
 	}
 	public int getBalconyNumber() {
 		return balconyNumber;
 	}
-	public void setBalconyNumber(int NewBalconyNumber) {
-		balconyNumber = NewBalconyNumber;
+	public void setBalconyNumber(int newBalconyNumber) {
+		balconyNumber = newBalconyNumber;
 	}
 	public String getPhoto() {
 		return photo;
 	}
-	public void setPhoto(String NewPhoto) {
-		photo = NewPhoto;
+	public void setPhoto(String newPhoto) {
+		photo = newPhoto;
 	}
 	public boolean getFreeInternet() {
 		return freeInternet;
 	}
-	public void setFreeInternet(boolean NewFreeInternet) {
-		freeInternet = NewFreeInternet;
+	public void setFreeInternet(boolean newFreeInternet) {
+		freeInternet = newFreeInternet;
 	}
 	public boolean getFeesIncludeWaterElectricity() {
 		return feesIncludeWaterElectricity;
 	}
-	public void setFeesIncludeWaterElectricity(boolean NewFeesIncludeWaterElectricity) {
-		feesIncludeWaterElectricity = NewFeesIncludeWaterElectricity;
+	public void setFeesIncludeWaterElectricity(boolean newFeesIncludeWaterElectricity) {
+		feesIncludeWaterElectricity = newFeesIncludeWaterElectricity;
 	}
 }

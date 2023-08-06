@@ -25,7 +25,7 @@ public class main {
 		System.out.println("Enter your password please");
 		String pass = myInput.next();
 		String type = login(username, pass);
-		menu_type(type);
+		menuType(type);
 		}
 		 while (username.equals("exit"));
 	 }
@@ -158,7 +158,7 @@ public class main {
 	 }
 	 
 	 
-	 public static void menu_type(String type)  {
+	 public static void menuType(String type)  {
 		 int in;
 		 if(type.equals("owner")) {
 			 do { 
