@@ -6,10 +6,10 @@ import static org.junit.Assert.assertTrue;
 import classes.House;
 import classes.IdAndTennant;
 import classes.Residence;
-import classes.Apartments;
+import classes.apartments;
 import classes.main;
-import classes.Owners;
-import classes.Tenant;
+import classes.owners;
+import classes.tenant;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +27,7 @@ public class tenantControlPanel {
 
 	@Then("Show tenant information")
 	public void show_tenant_information() {
-		Tenant tenantOne=new Tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
+		tenant tenantOne=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
 		main.tenantList.add(tenantOne);
 		assertTrue(main.showTenant("mayar"));
 	}
@@ -45,7 +45,7 @@ public class tenantControlPanel {
 	@Then("show information about owner")
 	public void show_information_about_owner() {
 		Residence Residence3 = new Residence("Hijjawi","Ramallah",4,4,true,true);
-		Apartments objApartments=new Apartments();
+		apartments objApartments=new apartments();
 		 
 	 	objApartments.setNumber(1);
 		objApartments.setWhichFloor(1);
@@ -59,7 +59,7 @@ public class tenantControlPanel {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 Owners ownerOne = new Owners("mayar","0569902837");
+	 owners ownerOne = new owners("mayar","0569902837");
 	 House House3=new House(1,Residence3,objApartments,ownerOne,true);
 		 main.addHouse(House3, "owner");
 		 main.acceptAndReject("y",House3);
@@ -79,7 +79,7 @@ public class tenantControlPanel {
 	@Then("show the rent and how to pay")
 	public void show_the_rent_and_how_to_pay() {
 		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
-		Apartments objApartments=new Apartments();
+		apartments objApartments=new apartments();
 		 
 	 	objApartments.setNumber(1);
 		objApartments.setWhichFloor(1);
@@ -93,7 +93,7 @@ public class tenantControlPanel {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 Owners ownerOne = new Owners("mayar","0569902837");
+	 owners ownerOne = new owners("mayar","0569902837");
 	 House houseOne=new House(1,Residence1,objApartments,ownerOne,true);
 		 main.addHouse(houseOne, "owner");
 		 main.acceptAndReject("y",houseOne);

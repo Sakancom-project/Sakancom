@@ -3,12 +3,12 @@ package classes;
 public class House {
 	private int id;
 	private Residence residenceObj;
-	private Apartments apartmentsObj ;
-	private Owners ownerObj ;
+	private apartments apartmentsObj ;
+	private owners ownerObj ;
 	private boolean availabilityStatus;
 
 	public House() {}
-	public House(int id,Residence residenceObj,Apartments apartmentsObj,Owners ownerObj,boolean availabilityStatus) {
+	public House(int id,Residence residenceObj,apartments apartmentsObj,owners ownerObj,boolean availabilityStatus) {
 		this.id=id;
 		this.residenceObj=residenceObj;
 		this.apartmentsObj=apartmentsObj;
@@ -27,16 +27,16 @@ public class House {
 	public void setResidenceObj(Residence newResidenceObj) {
 		residenceObj = newResidenceObj;
 	}
-	public Apartments getApartmentsObj() {
+	public apartments getApartmentsObj() {
 		return apartmentsObj;
 	}
-	public void setApartmentsObj(Apartments newApartmentsObj) {
+	public void setApartmentsObj(apartments newApartmentsObj) {
 		apartmentsObj = newApartmentsObj;
 	}
-	public Owners getOwnerObj() {
+	public owners getOwnerObj() {
 		return ownerObj;
 	}
-	public void setOwnerObj(Owners newOwnerObj) {
+	public void setOwnerObj(owners newOwnerObj) {
 		ownerObj = newOwnerObj;
 	}
 	public boolean getAvailabilityStatus() {
