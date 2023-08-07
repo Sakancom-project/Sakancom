@@ -14,8 +14,10 @@ public class main {
 	static String username;
 	public static ArrayList <IdAndTennant> IdAndTennantlist = new ArrayList<IdAndTennant>();
 	static int counter=0;
-	static Logger logger = Logger.getLogger(main .class.getName());
-	 
+	private static final Logger logger = Logger.getLogger(main .class.getName());
+	private static final String ADMIN = "admin";
+	private static final String OWNER = "owner";
+	private static final String TENANT = "tenant";
 	 public static void main(String[] args) {
 		 
 		 fullTenantList();
@@ -30,17 +32,15 @@ public class main {
 		}
 		 while (username.equals("exit"));
 	 }
-	 
-	 
-//log in 	 
+ 
 	 public static String login(String userName , String password){
 		 
-		 User firstUser= new User("marah", "123","admin");
-		 User secondtUser= new User("bayan", "333", "owner");
-		 User thirdUser= new User("ahmad", "133", "owner");
-		 User fourthUser= new User("khalid", "993", "tenant");
-		 User fifthUser= new User("mayar", "122", "tenant");
-		 User sixthUser= new User("osama", "222", "tenant");
+		 User firstUser= new User("marah", "123",ADMIN);
+		 User secondtUser= new User("bayan", "333", OWNER);
+		 User thirdUser= new User("ahmad", "133", OWNER);
+		 User fourthUser= new User("khalid", "993", TENANT);
+		 User fifthUser= new User("mayar", "122", TENANT);
+		 User sixthUser= new User("osama", "222", TENANT);
 		 
 		 users.add(firstUser);
 		 users.add(secondtUser);
@@ -52,14 +52,14 @@ public class main {
 		for (int i=0 ; i <users.size();i++) {
 			
 			if (users.get(i).getUserName().equals(userName)) {
-			if (users.get(i).getType().equals("admin")) {
-				setUserType("admin");
+			if (users.get(i).getType().equals(ADMIN)) {
+				setUserType(ADMIN);
 		}
-			else if (users.get(i).getType().equals("owner")) {
-				setUserType("owner");
+			else if (users.get(i).getType().equals(OWNER)) {
+				setUserType(OWNER);
 		}
-			else if (users.get(i).getType().equals("tenant")) {
-				setUserType("tenant");
+			else if (users.get(i).getType().equals(TENANT)) {
+				setUserType(TENANT);
 		}
 			else {
 				setUserType("none");
@@ -96,7 +96,7 @@ public class main {
 			residenceObj.setNumberApartmentsFloor(myInput.nextInt());
 			
 			logger.log(Level.INFO,"Enter the number of the apartment ?");
-			apartmentsObj.SetNumber(myInput.nextInt());
+			apartmentsObj.setNumber(myInput.nextInt());
 			
 			logger.log(Level.INFO,"What floor is the apartment on ?");
 			apartmentsObj.setWhichFloor(myInput.nextInt());
@@ -161,7 +161,7 @@ public class main {
 	 
 	 public static void menuType(String type)  {
 		 int in;
-		 if(type.equals("owner")) {
+		 if(type.equals(OWNER)) {
 			 do { 
 				 logger.log(Level.INFO," ((( owner menu ))) : ");
 				 logger.log(Level.INFO,"1-add House\n2-Modify information\n3-show House\n4-control panel\n5-Exit");
@@ -169,7 +169,7 @@ public class main {
 				 switch(in) {
 				 case 1:
 					 House House1 = enterInformation();
-						addHouse(House1,"owner");
+						addHouse(House1,OWNER);
 					 break;
 				 case 2:
 		
@@ -201,7 +201,7 @@ public class main {
 			 while(in!=5);
 			  
 		}
-		 else if (type.equals("admin")) {
+		 else if (type.equals(ADMIN)) {
 			 do { 
 				 logger.log(Level.INFO," ((( admin menu ))) : ");
 				 logger.log(Level.INFO,"1-accept and reject\n2-show advertised houses\n3-add at advertised houses\n4-Watching reservations via the system\n5-Exit");
@@ -214,7 +214,7 @@ public class main {
 								 logger.log(Level.INFO,"House information is : ");
 								 logger.log(Level.INFO,"1-name of Residence : " +arrayHouses.get(i).getResidenceObj().getName()+" \n2-the location of the Residence : " +arrayHouses.get(i).getResidenceObj().getLocation() +"\n3-the number of floors of the building : "+arrayHouses.get(i).getResidenceObj().getNumberFloors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 								 logger.log(Level.INFO,"5-the number of the apartment : "+arrayHouses.get(i).getApartmentsObj().getNumber()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+" \n8-How space is the room : "+arrayHouses.get(i).getApartmentsObj().getSpace());
-								 logger.log(Level.INFO,"9-How much are the monthly fees : "+arrayHouses.get(i).getApartmentsObj().GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
+								 logger.log(Level.INFO,"9-How much are the monthly fees : "+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
 									
 								 logger.log(Level.INFO,"Enter y if you accept to add this house and n if you reject : ");
 									acc = myInput.next();
@@ -227,7 +227,7 @@ public class main {
 						 break; 
 					 case 3:
 						 House House1 = enterInformation();
-							addHouse(House1,"admin");
+							addHouse(House1,ADMIN);
 						 break; 
 					 case 4:
 						 watchingReservations();
@@ -303,14 +303,12 @@ public class main {
 			 } while(in!=8);
 		 }
 	 }
-	 
-//owner		
-		
+
 		public static boolean addHouse(House House1,String type) {
-			if(type.equals("owner")) {
+			if(type.equals(OWNER)) {
 				arrayHouses.add(House1);
 			}
-			else if(type.equals("admin")) {
+			else if(type.equals(ADMIN)) {
 				AdvertisedHouses.add(House1);
 			}
 			
@@ -336,7 +334,7 @@ public class main {
 				House1.getResidenceObj().setNumberApartmentsFloor(Integer.parseInt(new_value));
 				break;
 			case 5:
-				House1.getApartmentsObj().SetNumber(Integer.parseInt(new_value));
+				House1.getApartmentsObj().setNumber(Integer.parseInt(new_value));
 				break;
 			case 6:
 				House1.getApartmentsObj().setWhichFloor(Integer.parseInt(new_value));
@@ -380,7 +378,7 @@ public class main {
 				logger.log(Level.INFO,"House information is : ");
 				logger.log(Level.INFO,"1-name of Residence : " +arrayHouses.get(i).getResidenceObj().getName()+" \n2-the location of the Residence : " +arrayHouses.get(i).getResidenceObj().getLocation() +"\n3-the number of floors of the building : "+arrayHouses.get(i).getResidenceObj().getNumberFloors()+" \n4-How many apartments per floor : "+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 				logger.log(Level.INFO,"5-the number of the apartment : "+arrayHouses.get(i).getApartmentsObj().getNumber()+" \n6-What floor is the apartment on : "+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+" \n7-How many people can the apartment accommodate : "+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+" \n8-How space is the room : "+arrayHouses.get(i).getApartmentsObj().getSpace());
-				logger.log(Level.INFO,"9-How much are the monthly fees : "+arrayHouses.get(i).getApartmentsObj().GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
+				logger.log(Level.INFO,"9-How much are the monthly fees : "+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+" \n10-Do the fees include electricity and water : "+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
 			}
 			logger.log(Level.INFO,"***The array is empty***");
 			return true;
@@ -438,7 +436,7 @@ public class main {
 				logger.log(Level.INFO,"House information is : ");
 				logger.log(Level.INFO,"1-name of Residence : " +AdvertisedHouses.get(i).getResidenceObj().getName()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).getResidenceObj().getLocation() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).getResidenceObj().getNumberFloors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 				logger.log(Level.INFO,"5-the number of the apartment : "+AdvertisedHouses.get(i).getApartmentsObj().getNumber()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).getApartmentsObj().getWhichFloor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).getApartmentsObj().getNumberPerson()+" \n8-How space is the room : "+AdvertisedHouses.get(i).getApartmentsObj().getSpace());
-				logger.log(Level.INFO,"9-How much are the monthly fees : "+AdvertisedHouses.get(i).getApartmentsObj().GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
+				logger.log(Level.INFO,"9-How much are the monthly fees : "+AdvertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
 			}
 			logger.log(Level.INFO,"***The array is empty***");
 			return true;
@@ -474,7 +472,7 @@ public class main {
 					 logger.log(Level.INFO,"House information is : ");
 					 logger.log(Level.INFO,"1-name of Residence : " +AdvertisedHouses.get(i).getResidenceObj().getName()+" \n2-the location of the Residence : " +AdvertisedHouses.get(i).getResidenceObj().getLocation() +"\n3-the number of floors of the building : "+AdvertisedHouses.get(i).getResidenceObj().getNumberFloors()+" \n4-How many apartments per floor : "+AdvertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 					 logger.log(Level.INFO,"5-the number of the apartment : "+AdvertisedHouses.get(i).getApartmentsObj().getNumber()+" \n6-What floor is the apartment on : "+AdvertisedHouses.get(i).getApartmentsObj().getWhichFloor()+" \n7-How many people can the apartment accommodate : "+AdvertisedHouses.get(i).getApartmentsObj().getNumberPerson()+" \n8-How space is the room : "+AdvertisedHouses.get(i).getApartmentsObj().getSpace());
-					 logger.log(Level.INFO,"9-How much are the monthly fees : "+AdvertisedHouses.get(i).getApartmentsObj().GetMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
+					 logger.log(Level.INFO,"9-How much are the monthly fees : "+AdvertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+" \n10-Do the fees include electricity and water : "+AdvertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+" \n11-Is there free internet service : "+AdvertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+AdvertisedHouses.get(i).getResidenceObj().getAvailableParking()+"\n13-Is elevator service available : "+AdvertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
 					 logger.log(Level.INFO,"14-Image link for the apartment"+AdvertisedHouses.get(i).getApartmentsObj().getPhoto());
 					 logger.log(Level.INFO,"** This house is available **");
 				 }
@@ -552,7 +550,7 @@ public class main {
 			int fee;
 			 for ( int i=0; i <IdAndTennantlist.size(); i++ ){
 				 if(IdAndTennantlist.get(i).getTenants().equals(name) ) {
-						fee= AdvertisedHouses.get(i).getApartmentsObj().GetMonthlyFee();
+						fee= AdvertisedHouses.get(i).getApartmentsObj().getMonthlyFee();
 						
 						logger.log(Level.INFO,"fee: " + fee);	
 						logger.log(Level.INFO,"do you want to pay , Enter the letter Y=Yes or N=No only");	
