@@ -23,11 +23,7 @@ public class modifyInformation {
 
 	@Then("name of Residence changed successfully")
 	public void name_of_residence_changed_successfully() {
-		
-//		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
-//		 apartments apartments1=new apartments(1,1,600,4,"400*400","ww",true,true);
-//		 House House1=new House(1,Residence1,apartments1);
-//		 main.addHouse(House1);
+
 		assertTrue(main.Modify_information(1,1,"Hajj Ahmed"));
 	}
 

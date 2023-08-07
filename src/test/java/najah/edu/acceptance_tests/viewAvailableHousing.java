@@ -25,7 +25,7 @@ public class viewAvailableHousing {
 
 	@Then("view all the available housing")
 	public void view_all_the_available_housing() {
-		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
+		Residence residenceOne = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		apartments objApartments=new apartments();
 		 
 	 	objApartments.setNumber(1);
@@ -40,9 +40,9 @@ public class viewAvailableHousing {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners owner1 = new owners("mayar","0569902837");
-	 House House1=new House(1,Residence1,objApartments,owner1,true);
-		 main.acceptAndReject("y",House1);
+	 owners ownerOne = new owners("mayar","0569902837");
+	 House houseOne=new House(1,residenceOne,objApartments,ownerOne,true);
+		 main.acceptAndReject("y",houseOne);
 		assertTrue(main.viewAvailableHousing());
 	  
 	}

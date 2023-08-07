@@ -24,7 +24,7 @@ public class ownerControlPanel {
 
 	@Then("Shows him the number of rooms, bathrooms, balcony, tenants and their information")
 	public void shows_him_the_number_of_rooms_bathrooms_balcony_tenants_and_their_information() {
-		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
+		Residence residenceOne = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		apartments objApartments=new apartments();
 		 
 	 	objApartments.setNumber(1);
@@ -39,9 +39,9 @@ public class ownerControlPanel {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners owner1 = new owners("mayar","0569902837");
-	 House House1=new House(1,Residence1,objApartments,owner1,true);
-		 main.acceptAndReject("y",House1);
+	 owners ownerOne = new owners("mayar","0569902837");
+	 House houseOne=new House(1,residenceOne,objApartments,ownerOne,true);
+		 main.acceptAndReject("y",houseOne);
 		 main.bookAccommodation(1,"mayar");
 		assertTrue(main.controlPanel("mayar"));
 	}

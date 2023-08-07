@@ -25,7 +25,7 @@ public class acceptAndReject {
 
 	@Then("add a house in ads and remove a house in ad requests.")
 	public void add_a_house_in_ads_and_remove_a_house_in_ad_requests() {
-		Residence Residence1 = new Residence("Hijjawi","Ramallah",4,4,true,true);
+		Residence residenceOne = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		apartments objApartments=new apartments();
 		 
 	 	objApartments.setNumber(1);
@@ -40,9 +40,9 @@ public class acceptAndReject {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners owner1 = new owners("mayar","0569902837");
-	 House House1=new House(1,Residence1,objApartments,owner1,true);
-		 assertTrue(main.acceptAndReject("y",House1));
+	 owners ownerOne = new owners("mayar","0569902837");
+	 House houseOne=new House(1,residenceOne,objApartments,ownerOne,true);
+		 assertTrue(main.acceptAndReject("y",houseOne));
 	}
 
 	@When("the administrator rejects the house request")
@@ -52,7 +52,7 @@ public class acceptAndReject {
 
 	@Then("remove a home from ad requests")
 	public void remove_a_home_from_ad_requests() {
-		Residence Residence2 = new Residence("Hijjawi","Ramallah",4,4,true,true);
+		Residence residenceTow = new Residence("Hijjawi","Ramallah",4,4,true,true);
 		apartments objApartments=new apartments();
 		 
 	 	objApartments.setNumber(1);
@@ -67,8 +67,8 @@ public class acceptAndReject {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners owner1 = new owners("mayar","0569902837");
-	 House House2=new House(1,Residence2,objApartments,owner1,true);
-		 assertFalse(main.acceptAndReject("n",House2));
+	 owners ownerOne = new owners("mayar","0569902837");
+	 House houseTow=new House(1,residenceTow,objApartments,ownerOne,true);
+		 assertFalse(main.acceptAndReject("n",houseTow));
 	}
 }

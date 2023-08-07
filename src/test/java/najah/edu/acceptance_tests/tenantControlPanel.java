@@ -27,8 +27,8 @@ public class tenantControlPanel {
 
 	@Then("Show tenant information")
 	public void show_tenant_information() {
-		tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
-		main.tenantList.add(tenant1);
+		tenant tenantOne=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
+		main.tenantList.add(tenantOne);
 		assertTrue(main.showTenant("mayar"));
 	}
 
@@ -59,8 +59,8 @@ public class tenantControlPanel {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners owner1 = new owners("mayar","0569902837");
-	 House House3=new House(1,Residence3,objApartments,owner1,true);
+	 owners ownerOne = new owners("mayar","0569902837");
+	 House House3=new House(1,Residence3,objApartments,ownerOne,true);
 		 main.addHouse(House3, "owner");
 		 main.acceptAndReject("y",House3);
 		 assertTrue(main.bookAccommodation(4,"mayar"));
@@ -93,10 +93,10 @@ public class tenantControlPanel {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners owner1 = new owners("mayar","0569902837");
-	 House House1=new House(1,Residence1,objApartments,owner1,true);
-		 main.addHouse(House1, "owner");
-		 main.acceptAndReject("y",House1);
+	 owners ownerOne = new owners("mayar","0569902837");
+	 House houseOne=new House(1,Residence1,objApartments,ownerOne,true);
+		 main.addHouse(houseOne, "owner");
+		 main.acceptAndReject("y",houseOne);
 		 main.bookAccommodation(3,"mayar");
 		 IdAndTennant IdAndTennant1=new IdAndTennant(3,"mayar");
 		 main.IdAndTennantlist.add(IdAndTennant1);
