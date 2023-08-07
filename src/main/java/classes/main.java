@@ -9,7 +9,7 @@ public class main {
 	public static  ArrayList<House> advertisedHouses = new ArrayList<House>();
 	private static int CounterID=0; 
 	public static ArrayList<User> users = new ArrayList<User>();
-	public static ArrayList<tenant> tenantList = new ArrayList<tenant>();
+	public static ArrayList<Tenant> tenantList = new ArrayList<Tenant>();
 	private static String userType = "none" ;
 	static String username;
 	public static ArrayList <IdAndTennant> idAndTennantlist = new ArrayList<IdAndTennant>();
@@ -100,8 +100,8 @@ public class main {
 	 
 	 public static House enterInformation() {
 		 Residence residenceObj=new Residence();
-		 	apartments apartmentsObj =new apartments() ;
-		 	owners ownerOne = new owners();
+		 	Apartments apartmentsObj =new Apartments() ;
+		 	Owners ownerOne = new Owners();
 		 	ownerOne.setName(username);
 			CounterID=CounterID+1;
 			logger.log(Level.INFO,"The name of the building in which the apartment is located ?");
@@ -236,7 +236,7 @@ public class main {
 							 for(int i=0;i<arrayHouses.size();i++) {
 								 logger.log(Level.INFO,houseId +arrayHouses.get(i).getId() );
 								 logger.log(Level.INFO,housInf);
-								 logger.log(Level.INFO,resName +arrayHouses.get(i).getResidenceObj().getName()+Location +arrayHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+arrayHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+								 logger.log(Level.INFO,resName +arrayHouses.get(i).getResidenceObj().getName()+Location +arrayHouses.get(i).getResidenceObj().getLocation() +numFloors+arrayHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 								 logger.log(Level.INFO,numAppartment+arrayHouses.get(i).getApartmentsObj().getNumber()+whatFloor+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+arrayHouses.get(i).getApartmentsObj().getSpace());
 								 logger.log(Level.INFO,howFess+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
 									
@@ -406,7 +406,7 @@ public class main {
 			for(int i=0;i<arrayHouses.size();i++) {
 				logger.log(Level.INFO,houseId +arrayHouses.get(i).getId() );
 				logger.log(Level.INFO,housInf);
-				logger.log(Level.INFO,resName +arrayHouses.get(i).getResidenceObj().getName()+Location +arrayHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+arrayHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+				logger.log(Level.INFO,resName +arrayHouses.get(i).getResidenceObj().getName()+Location +arrayHouses.get(i).getResidenceObj().getLocation() +numFloors+arrayHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 				logger.log(Level.INFO,numAppartment+arrayHouses.get(i).getApartmentsObj().getNumber()+whatFloor+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+arrayHouses.get(i).getApartmentsObj().getSpace());
 				logger.log(Level.INFO,howFess+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
 			}
@@ -464,7 +464,7 @@ public class main {
 		public static boolean showAdvertisedHouses() {
 			for(int i=0;i<advertisedHouses.size();i++) {
 				logger.log(Level.INFO,housInf);
-				logger.log(Level.INFO,resName +advertisedHouses.get(i).getResidenceObj().getName()+Location +advertisedHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+				logger.log(Level.INFO,resName +advertisedHouses.get(i).getResidenceObj().getName()+Location +advertisedHouses.get(i).getResidenceObj().getLocation() +numFloors+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
 				logger.log(Level.INFO,numAppartment+advertisedHouses.get(i).getApartmentsObj().getNumber()+whatFloor+advertisedHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+advertisedHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+advertisedHouses.get(i).getApartmentsObj().getSpace());
 				logger.log(Level.INFO,howFess+advertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+advertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+advertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+advertisedHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+advertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
 			}
@@ -511,8 +511,8 @@ public class main {
 		}
 		
 		public static void fullTenantList() {
-			tenant tenant1=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
-			tenant tenant2=new tenant("osama","0569834654",19,"enj",true,"12-4-2023");
+			Tenant tenant1=new Tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
+			Tenant tenant2=new Tenant("osama","0569834654",19,"enj",true,"12-4-2023");
 			tenantList.add(tenant1);
 			tenantList.add(tenant2);
 			

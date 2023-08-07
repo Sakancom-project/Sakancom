@@ -4,9 +4,9 @@ import static org.junit.Assert.assertTrue;
 
 import classes.House;
 import classes.Residence;
-import classes.apartments;
+import classes.Apartments;
 import classes.main;
-import classes.owners;
+import classes.Owners;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,7 +26,7 @@ public class viewAvailableHousing {
 	@Then("view all the available housing")
 	public void view_all_the_available_housing() {
 		Residence residenceOne = new Residence("Hijjawi","Ramallah",4,4,true,true);
-		apartments objApartments=new apartments();
+		Apartments objApartments=new Apartments();
 		 
 	 	objApartments.setNumber(1);
 		objApartments.setWhichFloor(1);
@@ -40,7 +40,7 @@ public class viewAvailableHousing {
 		objApartments.setFreeInternet(true);
 		objApartments.setFeesIncludeWaterElectricity(true);
 	 
-	 owners ownerOne = new owners("mayar","0569902837");
+	 Owners ownerOne = new Owners("mayar","0569902837");
 	 House houseOne=new House(1,residenceOne,objApartments,ownerOne,true);
 		 main.acceptAndReject("y",houseOne);
 		assertTrue(main.viewAvailableHousing());

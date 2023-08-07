@@ -3,7 +3,7 @@ package najah.edu.acceptance_tests;
 import static org.junit.Assert.assertTrue;
 
 import classes.main;
-import classes.tenant;
+import classes.Tenant;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,7 +21,7 @@ public class addFurniture {
 
 	@Then("Add Furniture")
 	public void add_furniture() {
-		tenant tenantOne=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
+		Tenant tenantOne=new Tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
 		main.tenantList.add(tenantOne);
 		assertTrue(main.addFurniture("sofa set","mayar"));
 	}

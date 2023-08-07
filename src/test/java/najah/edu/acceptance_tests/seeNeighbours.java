@@ -3,7 +3,7 @@ package najah.edu.acceptance_tests;
 import static org.junit.Assert.assertTrue;
 
 import classes.main;
-import classes.tenant;
+import classes.Tenant;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
@@ -15,7 +15,7 @@ public class seeNeighbours {
 
 	@Then("View all the student neighbours")
 	public void view_all_the_student_neighbours() {
-		tenant tenantOne=new tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
+		Tenant tenantOne=new Tenant("mayar","0569902837",19,"enj",true,"12-4-2023");
 		main.tenantList.add(tenantOne);
 		assertTrue(main.seeNeighbours("mayar"));
 	}	
