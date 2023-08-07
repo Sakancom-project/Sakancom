@@ -224,7 +224,7 @@ public class main {
 						 
 						 break; 
 					 case 2:
-						 showadvertisedHouses();
+						 showAdvertisedHouses();
 						 break; 
 					 case 3:
 						 House houseOne = enterInformation();
@@ -432,7 +432,7 @@ public class main {
 			return false;
 			}
 
-		public static boolean showadvertisedHouses() {
+		public static boolean showAdvertisedHouses() {
 			for(int i=0;i<advertisedHouses.size();i++) {
 				logger.log(Level.INFO,"House information is : ");
 				logger.log(Level.INFO,"1-name of Residence : " +advertisedHouses.get(i).getResidenceObj().getName()+" \n2-the location of the Residence : " +advertisedHouses.get(i).getResidenceObj().getLocation() +"\n3-the number of floors of the building : "+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+" \n4-How many apartments per floor : "+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());

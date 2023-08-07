@@ -65,9 +65,9 @@ public class tenantControlPanel {
 		 main.acceptAndReject("y",House3);
 		 assertTrue(main.bookAccommodation(4,"mayar"));
 		 IdAndTennant IdAndTennant1=new IdAndTennant(4,"mayar");
-		 main.IdAndTennantlist.add(IdAndTennant1);
+		 main.idAndTennantlist.add(IdAndTennant1);
 		 IdAndTennant IdAndTennant2=new IdAndTennant(1,"osama");
-		 main.IdAndTennantlist.add(IdAndTennant2);
+		 main.idAndTennantlist.add(IdAndTennant2);
 		assertTrue(main.ShowOwnerInformation("mayar"));
 	}
 
@@ -99,7 +99,7 @@ public class tenantControlPanel {
 		 main.acceptAndReject("y",houseOne);
 		 main.bookAccommodation(3,"mayar");
 		 IdAndTennant IdAndTennant1=new IdAndTennant(3,"mayar");
-		 main.IdAndTennantlist.add(IdAndTennant1);
+		 main.idAndTennantlist.add(IdAndTennant1);
 		 main.fullTenantList();
 		assertTrue(main.paymentt("y","mayar"));
 	}
