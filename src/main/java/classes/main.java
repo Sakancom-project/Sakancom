@@ -6,7 +6,7 @@ import java.util.logging.*;
 public class main {
 	static Scanner myInput = new Scanner(System.in);
 	public static ArrayList<House> arrayHouses = new ArrayList<House>();
-	public static ArrayList<House> advertisedHouses = new ArrayList<House>();
+	public static  ArrayList<House> advertisedHouses = new ArrayList<House>();
 	private static int CounterID=0; 
 	public static ArrayList<User> users = new ArrayList<User>();
 	public static ArrayList<tenant> tenantList = new ArrayList<tenant>();
@@ -15,29 +15,29 @@ public class main {
 	public static ArrayList <IdAndTennant> idAndTennantlist = new ArrayList<IdAndTennant>();
 	static int counter=0;
 	private static final Logger logger = Logger.getLogger(main .class.getName());
-	private static final String ADMIN = "admin";
-	private static final String OWNER = "owner";
-	private static final String TENANT = "tenant";
-	private static final String  PAYATTENTIONMASS = "Please, pay attention !!! Enter the letter Y=Yes or N=No only";
-	private static final String  HOUSEINF = "The house information is:";
-	private static final String  ENTRYERROR =  "You did not enter one of the available symbols";
-	private static final String  HOUSEID = "The ID of the house is: ";
-	private static final String  ELEVATOR ="\n13-Is elevator service available : ";
+	private static final String admin = "admin";
+	private static final String owner = "owner";
+	private static final String tenant = "tenant";
+	private static final String  payAttentionMass = "Please, pay attention !!! Enter the letter Y=Yes or N=No only";
+	private static final String  housInf = "The house information is:";
+	private static final String  entryError =  "You did not enter one of the available symbols";
+	private static final String  houseId = "The ID of the house is: ";
+	private static final String  elevatir ="\n13-Is elevator service available : ";
 
-	private static final String  INTERNET = " \n11-Is there free internet service : ";
+	private static final String  internet = " \n11-Is there free internet service : ";
 
-	private static final String  ELEANDWAT =" \n10-Do the fees include electricity and water : ";
+	private static final String  eleAndWat =" \n10-Do the fees include electricity and water : ";
 
 	
-	private static final String  HOWFEES = "9-How much are the monthly fees : ";
-	private static final String  HOWSPACE = " \n8-How space is the room : ";
-	private static final String  HOWPEOPLE = " \n7-How many people can the apartment accommodate : ";
-	private static final String  WHATFLOOR =" \n6-What floor is the apartment on : ";
-	private static final String  NUMAPPARTMENT = "5-the number of the apartment : ";
-	private static final String  HOWAPARTMENTS = " \n4-How many apartments per floor : ";
-	private static final String  NUMFLOORS = "\n3-the number of floors of the building : ";
-	private static final String  LOCATION = " \n2-the location of the Residence : ";
-	private static final String  RESNAME = "1-name of Residence : ";
+	private static final String  howFess = "9-How much are the monthly fees : ";
+	private static final String  howSpace = " \n8-How space is the room : ";
+	private static final String  howPeaople = " \n7-How many people can the apartment accommodate : ";
+	private static final String  whatFloor =" \n6-What floor is the apartment on : ";
+	private static final String  numAppartment = "5-the number of the apartment : ";
+	private static final String  howAppartment = " \n4-How many apartments per floor : ";
+	private static final String  numFloors = "\n3-the number of floors of the building : ";
+	private static final String  Location = " \n2-the location of the Residence : ";
+	private static final String  resName = "1-name of Residence : ";
 	
 	public static void main(String[] args) {
 		 
@@ -56,12 +56,12 @@ public class main {
  
 	 public static String login(String userName){
 		 
-		 User firstUser= new User("marah", "123",ADMIN);
-		 User secondtUser= new User("bayan", "333", OWNER);
-		 User thirdUser= new User("ahmad", "133", OWNER);
-		 User fourthUser= new User("khalid", "993", TENANT);
-		 User fifthUser= new User("mayar", "122", TENANT);
-		 User sixthUser= new User("osama", "222", TENANT);
+		 User firstUser= new User("marah", "123",admin);
+		 User secondtUser= new User("bayan", "333", owner);
+		 User thirdUser= new User("ahmad", "133", owner);
+		 User fourthUser= new User("khalid", "993", tenant);
+		 User fifthUser= new User("mayar", "122", tenant);
+		 User sixthUser= new User("osama", "222", tenant);
 		 
 		 users.add(firstUser);
 		 users.add(secondtUser);
@@ -73,14 +73,14 @@ public class main {
 		for (int i=0 ; i <users.size();i++) {
 			
 			if (users.get(i).getUserName().equals(userName)) {
-			if (users.get(i).getType().equals(ADMIN)) {
-				setUserType(ADMIN);
+			if (users.get(i).getType().equals(admin)) {
+				setUserType(admin);
 		}
-			else if (users.get(i).getType().equals(OWNER)) {
-				setUserType(OWNER);
+			else if (users.get(i).getType().equals(owner)) {
+				setUserType(owner);
 		}
-			else if (users.get(i).getType().equals(TENANT)) {
-				setUserType(TENANT);
+			else if (users.get(i).getType().equals(tenant)) {
+				setUserType(tenant);
 		}
 			else {
 				setUserType("none");
@@ -182,7 +182,7 @@ public class main {
 	 
 	 public static void menuType(String type)  {
 		 int in;
-		 if(type.equals(OWNER)) {
+		 if(type.equals(owner)) {
 			 do { 
 				 logger.log(Level.INFO," ((( owner menu ))) : ");
 				 logger.log(Level.INFO,"1-add House\n2-Modify information\n3-show House\n4-control panel\n5-Exit");
@@ -190,7 +190,7 @@ public class main {
 				 switch(in) {
 				 case 1:
 					 House houseOne = enterInformation();
-						addHouse(houseOne,OWNER);
+						addHouse(houseOne,owner);
 					 break;
 				 case 2:
 		
@@ -217,7 +217,7 @@ public class main {
 					 
 					 break; 
 				 default: 
-					 logger.log(Level.INFO,ENTRYERROR);
+					 logger.log(Level.INFO,entryError);
 					    break;
 				 }
 				 
@@ -225,7 +225,7 @@ public class main {
 			 while(in!=5);
 			  
 		}
-		 else if (type.equals(ADMIN)) {
+		 else if (type.equals(admin)) {
 			 do { 
 				 logger.log(Level.INFO," ((( admin menu ))) : ");
 				 logger.log(Level.INFO,"1-accept and reject\n2-show advertised houses\n3-add at advertised houses\n4-Watching reservations via the system\n5-Exit");
@@ -234,11 +234,11 @@ public class main {
 					 case 1:
 						String acc; 
 							 for(int i=0;i<arrayHouses.size();i++) {
-								 logger.log(Level.INFO,HOUSEID +arrayHouses.get(i).getId() );
-								 logger.log(Level.INFO,HOUSEINF);
-								 logger.log(Level.INFO,RESNAME +arrayHouses.get(i).getResidenceObj().getName()+LOCATION +arrayHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+arrayHouses.get(i).getResidenceObj().getNumberFloors()+HOWAPARTMENTS+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
-								 logger.log(Level.INFO,NUMAPPARTMENT+arrayHouses.get(i).getApartmentsObj().getNumber()+WHATFLOOR+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+HOWPEOPLE+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+HOWSPACE+arrayHouses.get(i).getApartmentsObj().getSpace());
-								 logger.log(Level.INFO,HOWFEES+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+ELEANDWAT+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+INTERNET+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+ELEVATOR+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
+								 logger.log(Level.INFO,houseId +arrayHouses.get(i).getId() );
+								 logger.log(Level.INFO,housInf);
+								 logger.log(Level.INFO,resName +arrayHouses.get(i).getResidenceObj().getName()+Location +arrayHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+arrayHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+								 logger.log(Level.INFO,numAppartment+arrayHouses.get(i).getApartmentsObj().getNumber()+whatFloor+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+arrayHouses.get(i).getApartmentsObj().getSpace());
+								 logger.log(Level.INFO,howFess+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
 									
 								 logger.log(Level.INFO,"Enter y if you accept to add this house and n if you reject : ");
 									acc = myInput.next();
@@ -251,7 +251,7 @@ public class main {
 						 break; 
 					 case 3:
 						 House houseOne = enterInformation();
-							addHouse(houseOne,ADMIN);
+							addHouse(houseOne,admin);
 						 break; 
 					 case 4:
 						 watchingReservations();
@@ -260,7 +260,7 @@ public class main {
 						 
 						 break; 
 					 default: 
-						 logger.log(Level.INFO,ENTRYERROR);
+						 logger.log(Level.INFO,entryError);
 						    break;
 						 
 					 } 
@@ -325,7 +325,7 @@ public class main {
 						 case 8:
 							 break;
 						 default: 
-							 logger.log(Level.INFO,ENTRYERROR);
+							 logger.log(Level.INFO,entryError);
 							    break;
 					  }; 
 					
@@ -334,10 +334,10 @@ public class main {
 	 }
 
 		public static boolean addHouse(House houseOne,String type) {
-			if(type.equals(OWNER)) {
+			if(type.equals(owner)) {
 				arrayHouses.add(houseOne);
 			}
-			else if(type.equals(ADMIN)) {
+			else if(type.equals(admin)) {
 				advertisedHouses.add(houseOne);
 			}
 			
@@ -393,7 +393,7 @@ public class main {
 				houseOne.getApartmentsObj().setPhoto(new_value);
 				break;
 			 default: 
-				 logger.log(Level.INFO,ENTRYERROR);
+				 logger.log(Level.INFO,entryError);
 				    break;
 			}
 		
@@ -404,11 +404,11 @@ public class main {
 		
 		public static boolean showHouse() {
 			for(int i=0;i<arrayHouses.size();i++) {
-				logger.log(Level.INFO,HOUSEID +arrayHouses.get(i).getId() );
-				logger.log(Level.INFO,HOUSEINF);
-				logger.log(Level.INFO,RESNAME +arrayHouses.get(i).getResidenceObj().getName()+LOCATION +arrayHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+arrayHouses.get(i).getResidenceObj().getNumberFloors()+HOWAPARTMENTS+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
-				logger.log(Level.INFO,NUMAPPARTMENT+arrayHouses.get(i).getApartmentsObj().getNumber()+WHATFLOOR+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+HOWPEOPLE+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+HOWSPACE+arrayHouses.get(i).getApartmentsObj().getSpace());
-				logger.log(Level.INFO,HOWFEES+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+ELEANDWAT+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+INTERNET+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+ELEVATOR+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
+				logger.log(Level.INFO,houseId +arrayHouses.get(i).getId() );
+				logger.log(Level.INFO,housInf);
+				logger.log(Level.INFO,resName +arrayHouses.get(i).getResidenceObj().getName()+Location +arrayHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+arrayHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+arrayHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+				logger.log(Level.INFO,numAppartment+arrayHouses.get(i).getApartmentsObj().getNumber()+whatFloor+arrayHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+arrayHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+arrayHouses.get(i).getApartmentsObj().getSpace());
+				logger.log(Level.INFO,howFess+arrayHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+arrayHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+arrayHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+arrayHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+arrayHouses.get(i).getResidenceObj().getElevatorAvailable());
 			}
 			logger.log(Level.INFO,"***The array is empty***");
 			return true;
@@ -418,7 +418,7 @@ public class main {
 		public static boolean  controlPanel(String userName) {
 			for(int i=0;i<advertisedHouses.size();i++) {
 				if(userName.equals(advertisedHouses.get(i).getOwnerObj().getName())) {
-					logger.log(Level.INFO,HOUSEID +advertisedHouses.get(i).getId() );
+					logger.log(Level.INFO,houseId +advertisedHouses.get(i).getId() );
 					logger.log(Level.INFO,"Architecture name : " +advertisedHouses.get(i).getResidenceObj().getName() );
 					logger.log(Level.INFO,"The apartment is located on the floor : " +advertisedHouses.get(i).getResidenceObj().getNumberFloors() );
 					logger.log(Level.INFO,"This apartment is located on the floor:"+advertisedHouses.get(i).getApartmentsObj().getWhichFloor());
@@ -463,10 +463,10 @@ public class main {
 
 		public static boolean showAdvertisedHouses() {
 			for(int i=0;i<advertisedHouses.size();i++) {
-				logger.log(Level.INFO,HOUSEINF);
-				logger.log(Level.INFO,RESNAME +advertisedHouses.get(i).getResidenceObj().getName()+LOCATION +advertisedHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+HOWAPARTMENTS+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
-				logger.log(Level.INFO,NUMAPPARTMENT+advertisedHouses.get(i).getApartmentsObj().getNumber()+WHATFLOOR+advertisedHouses.get(i).getApartmentsObj().getWhichFloor()+HOWPEOPLE+advertisedHouses.get(i).getApartmentsObj().getNumberPerson()+HOWSPACE+advertisedHouses.get(i).getApartmentsObj().getSpace());
-				logger.log(Level.INFO,HOWFEES+advertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+ELEANDWAT+advertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+INTERNET+advertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+advertisedHouses.get(i).getResidenceObj().getAvailableParking()+ELEVATOR+advertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
+				logger.log(Level.INFO,housInf);
+				logger.log(Level.INFO,resName +advertisedHouses.get(i).getResidenceObj().getName()+Location +advertisedHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+				logger.log(Level.INFO,numAppartment+advertisedHouses.get(i).getApartmentsObj().getNumber()+whatFloor+advertisedHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+advertisedHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+advertisedHouses.get(i).getApartmentsObj().getSpace());
+				logger.log(Level.INFO,howFess+advertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+advertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+advertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+advertisedHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+advertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
 			}
 			logger.log(Level.INFO,"***The array is empty***");
 			return true;
@@ -499,10 +499,10 @@ public class main {
 		public static boolean viewPicturesAndInformation(){
 			for(int i=0;i<advertisedHouses.size();i++) {
 				 if(advertisedHouses.get(i).getAvailabilityStatus()) {
-					 logger.log(Level.INFO,HOUSEINF);
-					 logger.log(Level.INFO,RESNAME +advertisedHouses.get(i).getResidenceObj().getName()+LOCATION +advertisedHouses.get(i).getResidenceObj().getLocation() +NUMFLOORS+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+HOWAPARTMENTS+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
-					 logger.log(Level.INFO,NUMAPPARTMENT+advertisedHouses.get(i).getApartmentsObj().getNumber()+WHATFLOOR+advertisedHouses.get(i).getApartmentsObj().getWhichFloor()+HOWPEOPLE+advertisedHouses.get(i).getApartmentsObj().getNumberPerson()+HOWSPACE+advertisedHouses.get(i).getApartmentsObj().getSpace());
-					 logger.log(Level.INFO,HOWFEES+advertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+ELEANDWAT+advertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+INTERNET+advertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+advertisedHouses.get(i).getResidenceObj().getAvailableParking()+ELEVATOR+advertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
+					 logger.log(Level.INFO,housInf);
+					 logger.log(Level.INFO,resName +advertisedHouses.get(i).getResidenceObj().getName()+Location +advertisedHouses.get(i).getResidenceObj().getLocation() +numFloors+advertisedHouses.get(i).getResidenceObj().getNumberFloors()+howAppartment+advertisedHouses.get(i).getResidenceObj().getNumberApartmentsFloor());
+					 logger.log(Level.INFO,numAppartment+advertisedHouses.get(i).getApartmentsObj().getNumber()+whatFloor+advertisedHouses.get(i).getApartmentsObj().getWhichFloor()+howPeaople+advertisedHouses.get(i).getApartmentsObj().getNumberPerson()+howSpace+advertisedHouses.get(i).getApartmentsObj().getSpace());
+					 logger.log(Level.INFO,howFess+advertisedHouses.get(i).getApartmentsObj().getMonthlyFee()+eleAndWat+advertisedHouses.get(i).getApartmentsObj().getFeesIncludeWaterElectricity()+internet+advertisedHouses.get(i).getApartmentsObj().getFreeInternet()+" \n12-Is there a private car park for the building : "+advertisedHouses.get(i).getResidenceObj().getAvailableParking()+elevatir+advertisedHouses.get(i).getResidenceObj().getElevatorAvailable());
 					 logger.log(Level.INFO,"14-Image link for the apartment"+advertisedHouses.get(i).getApartmentsObj().getPhoto());
 					 logger.log(Level.INFO,"** This house is available **");
 				 }
@@ -605,7 +605,7 @@ public class main {
 				 logger.log(Level.INFO,"please pay soon ");
 				 break;
 			 default: 
-				 logger.log(Level.INFO,ENTRYERROR);
+				 logger.log(Level.INFO,entryError);
 				    break; 
 			 }
 			return true;
