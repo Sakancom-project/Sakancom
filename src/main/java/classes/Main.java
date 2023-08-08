@@ -5,9 +5,9 @@ import java.util.Scanner;
 import java.util.logging.*;
 public class Main {
 	static Scanner myInput = new Scanner(System.in);
-	protected static ArrayList<House> arrayHouses = new ArrayList<House>();
-	protected static ArrayList<House> advertisedHouses = new ArrayList<House>();
-	protected static ArrayList<User> users = new ArrayList<User>();
+	private static final ArrayList<House> arrayHouses = new ArrayList<House>();
+	private static final ArrayList<House> advertisedHouses = new ArrayList<House>();
+	private static final ArrayList<User> users = new ArrayList<User>();
 	private static ArrayList<Tenant> tenantList = new ArrayList<Tenant>();
 	private static ArrayList <IdAndTennant> idAndTennantlist = new ArrayList<IdAndTennant>();
 
@@ -204,8 +204,8 @@ public class Main {
 						
 						int num = myInput.nextInt();
 						logger.log(Level.INFO,"Enter the new value");
-						String new_value =  myInput.next();
-						modifyInformation(houseId,num,new_value);			 
+						String newValue =  myInput.next();
+						modifyInformation(houseId,num,newValue);			 
 						break;
 				 case 3:
 					 showHouse();
@@ -305,8 +305,8 @@ public class Main {
 						 break; 
 					 case 3:
 						 menu();
-						 int Num =myInput.nextInt();
-						 switch(Num) {
+						 int num =myInput.nextInt();
+						 switch(num) {
 						 case 1: 
 							 showTenant(username);
 							 break;
