@@ -68,7 +68,7 @@ public class tenantControlPanel {
 		 Main.getIdAndTennantlist().add(IdAndTennant1);
 		 IdAndTennant IdAndTennant2=new IdAndTennant(1,"osama");
 		 Main.getIdAndTennantlist().add(IdAndTennant2);
-		assertTrue(Main.ShowOwnerInformation("mayar"));
+		assertTrue(Main.showOwnerInformation("mayar"));
 	}
 
 	@When("the tenant want to show the rent")
