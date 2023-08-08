@@ -5,9 +5,9 @@ import java.util.Scanner;
 import java.util.logging.*;
 public class Main {
 	static Scanner myInput = new Scanner(System.in);
-	private static final ArrayList<House> arrayHouses = new ArrayList<House>();
-	private static final ArrayList<House> advertisedHouses = new ArrayList<House>();
-	private static final ArrayList<User> users = new ArrayList<User>();
+	protected static ArrayList<House> arrayHouses = new ArrayList<House>();
+	protected static ArrayList<House> advertisedHouses = new ArrayList<House>();
+	protected static ArrayList<User> users = new ArrayList<User>();
 	private static ArrayList<Tenant> tenantList = new ArrayList<Tenant>();
 	private static ArrayList <IdAndTennant> idAndTennantlist = new ArrayList<IdAndTennant>();
 
